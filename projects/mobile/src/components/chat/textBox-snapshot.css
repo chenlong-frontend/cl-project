@@ -1,0 +1,21 @@
+.time {font-size: 12px;color: #A0A0A0;text-align: right;margin: 4px 0 20px 0;padding-right: 20px;}
+
+.clearFix:after {content: ' ';display: block;height: 100%;clear: both;visibility: hidden;}
+.message {width: 100%;}
+.img {width: 40px;display: inline-block;float: left;}
+.headPic {width: 40px;height: 40px;cursor: pointer;background-position: center;}
+.headPic img {width: 40px;border-radius: 20px;}
+.name {color: #424242;font-size: 14px;text-align: center;}
+.content {overflow: hidden;}
+.bubble {margin: 0 10px 0 20px;background-color: #FFFFFF;width: auto;min-height: 40px;display: inline-block;
+    vertical-align: top;position: relative;text-align: left;font-size: 14px;border-radius: 3px;}
+.bubble::after,.bubble::before {position: absolute;top: 8px;border: 14px solid transparent;content: " ";}
+.bubbleCount {word-wrap:break-word;word-break:break-all;min-height:25px;}
+.plain {padding: 9px 13px;}
+.prePlain {margin: 0;word-break: normal;line-height: 20px;}
+.title {border-bottom: 1px solid #F1F1F1;padding-bottom: 5px;}
+.text {font-size: 12px;margin: 10px 0;}
+
+.chatContentTalkOther .message{float: left;text-align: left;clear:left;}
+.chatContentTalkOther .bubble {float: left;}
+.chatContentTalkOther .bubble:before{right: 100%;border-right-color: #FFFFFF;border-right-width:14px;}

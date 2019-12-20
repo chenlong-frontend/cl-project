@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/filemanage.css" rel="stylesheet" />
+    <style>
+        #wait-load{bottom: 0;}
+        .fileManage-collection .mui-title {width: 180px;top:9px;}
+        #app-fileManage-collection .file_list {margin-top: 0;}
+        .file_list.checkbox-show {top: 136px;}
+        .select-tool-bar {font-size: 12px;padding: 0 10px;}
+        .select-tool-bar p {margin: 0;color: #7F7F7F;display: inline-block;padding: 8px 10px 7px 10px;border-bottom: 1px solid #F6F6F6;}
+        .select-tool-bar p.end {float: right;}
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-fileManage-collection" class="file-manage-search file-manage-search-result"  @click="nodeControl">
+    <file-manage-search :is-show.sync="isSearchShow" @filesearch="searchListen"></file-manage-search>
+
+    <file-manage-search-result :is-show.sync="isSearchResult" extra="myUp" :request="searchRequest"></file-manage-search-result>
+
+    <header class="mui-bar mui-bar-nav fileManage-collection">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">我的收藏文件</h1>
+        <a class="icon">
+            <img @click.stop="active.sort=!active.sort" src="img/filemanage/sort.png" />
+            <ul v-show="active.sort" class="select-box"><li @click="sortByName">按名称排序</li><li @click="sortByTime">按时间排序</li><li @click="sortBySize">按文件大小排序</li></ul>
+        </a>
+        <a class="icon" @click="isSearchShow=true"><img src="img/filemanage/search.png" /></a>
+    </header>
+    <div class="mui-content">
+        <!--横向滚动-->
+        <div class="my_scroll mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+        <div class="mui-scroll">
+            <a v-for="(item,index) in display.type" @click="typeSelect(item,index)" :class="{active:index === active.type}">{{item.name}}</a>
+            </div>
+        </div>
+        <!--横向滚动-->
+        <div class="select-tool-bar">
+            <p @click="allSelect">全选</p><p @click="cancelCollect">取消收藏</p><p @click="active.select=false;selected=[]" class="end">完成</p>
+        </div>
+        <ul @scroll="loadMore($event)" class="file_list" :class="{'checkbox-show':active.select}">
+            <li class="item"  :class="{'checkbox-show':active.select}" v-for="item in display.file" :key="item.id">
+                <div class="item-checkbox" v-if="active.select">
+                    <input v-model="selected" type="checkbox" :value="item.id" />
+                </div>
+                <div class="img">
+                    <img :src="item.type_icon" />
+                    </div>
+                <div class="text">
+                    <p class="name">{{item.file_name}}</p>
+                    <p class="info">{{item.file_size}} <span class="time">上传时间 : {{item.scan_time}}</span></p>
+                </div>
+                <div class="right">
+                    <img @click.stop = "item.isToolBar=true" src="img/filemanage/more.png" />
+                </div>
+                <ul class="tool-bar" v-show="item.isToolBar">
+                    <li @click.stop="fileShare(item)">分享文档</li>
+                    <li @click.stop="fileCollection(item)">取消收藏</li>
+                </ul>
+            </li>
+            <li v-show="display.file.length === 0"><p style="text-align: center">暂无结果</p></li>
+            <li class="loading-more" v-show="isScrollBottom"><p>加载中···</p></li>
+        </ul>
+        </div>
+    <!--底部计数-->
+    <div class="search-count">
+    <p>我收藏的共{{display.file.length}}个</p>
+    </div>
+    </div>
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/fileManage/component/search.js"></script>
+<script src="app/js/fileManage/component/searchResult.js"></script>
+<script src="app/js/fileManage/collection.js"></script>
+</body>
+</html>

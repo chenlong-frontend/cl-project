@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/snapshot.css" rel="stylesheet" />
+    <style>
+        .mui-content {background: #FFFFFF;}
+        .mui-content {padding-bottom: 120px;}
+        .my_tips {margin: 25px 0;}
+        .my_form {padding-top: 0;}
+        .my_bottom_progress {bottom: 80px;}
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-snapshot-verify-fail-submit">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">审核不通过</h1>
+    </header>
+    <div class="mui-content">
+        <div class="photo_box read">
+            <p>违章记录照片 : </p>
+            <div class="img_box">
+                <img :src="photo" alt="pic" />
+            </div>
+        </div>
+
+        <!--表单-->
+        <form class="my_form">
+            <div class="my-input-row">
+                <div class="left">驳回原因 :</div>
+                <div class="right">
+                    <select v-model="form.fail_id" class="my_select" @change="reasonChange">
+                        <option v-for="item in reason" :value="item._id">{{item._name}}</option>
+                    </select>
+                    <input type="text" :value="text.reason" readonly="readonly" />
+                </div>
+            </div>
+
+            <div class="my-input-row">
+                <div class="left text">审核意见 :</div>
+                <div class="right">
+                    <textarea v-model="form.verify_advise" placeholder="请填写审核意见"></textarea>
+                </div>
+            </div>
+        </form>
+        <!--表单-->
+
+        <div class="my_bottom_progress">
+            <div class="progress">
+                <div class="left">
+                    <a class="active"> 待审核</a>
+                    <span></span>
+                    <a>待处理</a>
+                    <span></span>
+                    <a>已处理</a>
+                    <span></span>
+                    <a>已确认</a>
+                </div>
+                <div class="right">
+                    <div class="time">
+                        <p>变更时间</p>
+                        <p>{{text.time}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="my_bottom_bth">
+            <div class="button model_2">
+                <button @click="submit" class="submit">通过审核</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/snapshot/verifyFailSubmit.js"></script>
+</body>
+</html>

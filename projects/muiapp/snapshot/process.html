@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/snapshot.css" rel="stylesheet" />
+    <style>
+        body,.mui-content {background: #FFFFFF;}
+        .mui-content {padding-bottom: 50px;}
+        .my_bottom_bth .button.model_1 .left {width: 40%;}
+        .my_bottom_bth .button.model_1 .right {width: 60%;}
+        .my_bottom_bth .button.model_1 .left > button {background-color: #DDDA5B;color: #7F7F7F;}
+        .my_bottom_bth .button.model_1 .right > button {background-color: #3899E8;}
+        .my_tips {margin: 20px 0 5px 0;}
+        .my_form {padding-top: 10px;padding-bottom: 80px;}
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-snapshot-process">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">违章记录-待处理</h1>
+    </header>
+    <div class="mui-content">
+        <!--拍照-->
+        <div class="photo_box read">
+            <p>违章记录照片 : </p>
+            <div class="img_box">
+                <img :src="form.vio_pic" alt="pic" />
+            </div>
+        </div>
+        <!--拍照-->
+
+        <!--提示信息-->
+        <div class="my_tips">
+            <div class="box">
+                <div class="img">
+                    <img src="img/svg/tip.svg" />
+                </div>
+                <p>请查看审核意见，点击底部按钮填写违章处理情况</p>
+            </div>
+        </div>
+        <!--提示信息-->
+
+        <!--表单-->
+        <form class="my_form">
+            <div class="my-input-row">
+                <div class="left">违章位置 :</div>
+                <div class="right">
+                    <input type="text" :value="form.address" class="unchange" readonly="readonly">
+                </div>
+            </div>
+
+            <div class="my-input-row">
+                <div class="left">违章类型 :</div>
+                <div class="right">
+                    <input type="text" :value="form.vio_type_name" class="unchange" readonly="readonly">
+                </div>
+            </div>
+
+            <div class="my-input-row">
+                <div class="left">违章时间 :</div>
+                <div class="right">
+                    <input type="text" :value="form.upload_time" class="unchange" readonly="readonly">
+                </div>
+            </div>
+
+            <div class="my-input-row">
+                <div class="left">发现人 :</div>
+                <div class="right">
+                    <input type="text" :value="form.upload_name" class="unchange" readonly="readonly">
+                </div>
+            </div>
+
+            <div class="my-input-row tmp_hide">
+                <div class="left">抄送给 :</div>
+                <div class="right">
+                    <input type="text" :value="form.copy_to_man" class="unchange" readonly="readonly" />
+                </div>
+            </div>
+
+            <div class="my-input-row">
+                <div class="left text">违章详情 :</div>
+                <div class="right">
+                    <textarea class="unchange" :value="form.vio_desc" readonly="readonly"></textarea>
+                </div>
+            </div>
+
+            <div class="my-input-row">
+                <div class="left">问题等级 :</div>
+                <div class="right">
+                    <input type="text" :value="form.vio_level_name" class="unchange" readonly="readonly">
+                </div>
+            </div>
+
+            <div class="my-input-row">
+                <div class="left">指派部门 :</div>
+                <div class="right">
+                    <input type="text" :value="form.gro_name" class="unchange" readonly="readonly">
+                </div>
+            </div>
+
+            <div class="my-input-row">
+                <div class="left text">审核意见 :</div>
+                <div class="right">
+                    <textarea class="unchange" :value="form.verify_advise" readonly="readonly"></textarea>
+                </div>
+            </div>
+        </form>
+        <!--表单-->
+    </div>
+    <!--底部提交-->
+    <div class="my_bottom_bth">
+        <div class="button model_1" v-show="form.role === 2 && form.is_over === 0">
+            <div class="left"><button @click="report" class="report">汇报进度</button></div>
+            <div class="right"><button @click="done" class="done">违章处理完成情况</button></div>
+        </div>
+        <div class="button model_2" v-show="form.role === 2 && form.is_over === 1">
+            <button @click="accept" class="accept">我来处理</button>
+        </div>
+    </div>
+    <div class="my_bottom_progress" :style="{bottom:style.progress}">
+        <div class="progress">
+            <div class="left">
+                <a>待审核</a>
+                <span></span>
+                <a class="active danger">待处理</a>
+                <span></span>
+                <a>已处理</a>
+                <span></span>
+                <a>已确认</a>
+            </div>
+            <div class="right">
+                <div class="time">
+                    <p>变更时间</p>
+                    <p class="change_time">{{text.time}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--底部提交-->
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/snapshot/process.js"></script>
+</body>
+</html>

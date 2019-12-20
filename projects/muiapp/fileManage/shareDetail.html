@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/filemanage.css" rel="stylesheet" />
+    <style>
+        #wait-load{bottom: 0;}
+        .my_table.process {background: #ffffff;padding: 10px 10px 10px 64px;}
+        .my_table .item .right {padding-left: 60px;}
+        .table-layout {background: #ffffff;padding: 15px;position: relative;}
+        .table-layout .table-title {margin: 0 0 0 40px;color: #424242;font-size: 16px;padding: 10px;}
+        .table-box {display: table;}
+        .table-layout:after {position: absolute;content: ' ';bottom: 5px;height: 1px;right: 18px;left: 18px;background: #EFEFEF;}
+        .table-box .table-item img {width: 30px;height: 34px;}
+        .table-box .table-item {display: table-cell;vertical-align: top;}
+        .table-item .my_table .item .right {padding-left: 60px;}
+        .my_table .item .left {text-align: left;}
+        .table-item {padding-right: 10px;}
+        .table-item.img {width: 48px;padding-left: 6px;padding-right: 15px;}
+        .table-item-left {position: relative;}
+        .table-item-left:after {position: absolute;content: ' ';top: 10px;bottom: 10px;width: 1px;right: 10px;background: #EFEFEF;}
+        .table-box-folder .table-item img {width: 30px;height: 26px;}
+        .table-box-folder .table-item .my_table .item .right {padding-left: 70px;}
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-file-manage-share-detail">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">分享记录</h1>
+    </header>
+    <div class="mui-content">
+        <div class="table-layout">
+            <h5 class="table-title">工地操作原安全注意手册</h5>
+            <div class="table-box">
+                <div class="img table-item">
+                    <img src="img/filemanage/doc.png" />
+                </div>
+                <div class="table-item table-item-left">
+                    <div class="my_table">
+                        <div class="item">
+                            <div class="left">上传时间 : </div>
+                            <div class="right">2017-02-03</div>
+                        </div>
+                        <div class="item">
+                            <div class="left">上传人 : </div>
+                            <div class="right">SE00123</div>
+                        </div>
+                        <div class="item">
+                            <div class="left">浏览数 : </div>
+                            <div class="right">9999+</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-item">
+                    <div class="my_table">
+                        <div class="item">
+                            <div class="left">文件类型 : </div>
+                            <div class="right">word文档</div>
+                        </div>
+                        <div class="item">
+                            <div class="left">文件大小 : </div>
+                            <div class="right">2M</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--根据返回字段判断显示哪一个-->
+            <div class="table-box table-box-folder">
+                <div class="img table-item">
+                    <img src="img/filemanage/folder.png" />
+                </div>
+                <div class="table-item">
+                    <div class="my_table">
+                        <div class="item">
+                            <div class="left">文件个数 : </div>
+                            <div class="right">1</div>
+                        </div>
+                        <div class="item">
+                            <div class="left">文件夹位置 : </div>
+                            <div class="right">的是非得失发顺丰大沙发沙发发顺丰·1</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="my_table process">
+            <div class="item">
+                <div class="left">分享人 : </div>
+                <div class="right">分享时间</div>
+            </div>
+            <div class="item">
+                <div class="left">分享时间 : </div>
+                <div class="right">SE00123</div>
+            </div>
+            <div class="item">
+                <div class="left">分享说明 : </div>
+                <div class="right">发的说法时发送到发斯蒂芬大师傅大师傅大师傅大师傅是的法师打发是否是大事发生发顺丰撒的发生非得给1</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="my_bottom_bth">
+        <div class="button model_2">
+            <!--根据返回字段判断显示哪一个-->
+            <button class="accept" @click="submit"><span>查看文件</span><span>查看文件夹</span></button>
+        </div>
+    </div>
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/fileManage/shareDetail.js"></script>
+</body>
+</html>

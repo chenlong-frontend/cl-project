@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/snapshot.css" rel="stylesheet" />
+    <style>
+        .mui-bar-nav~.mui-content {background: #EFEFF4;padding-bottom: 100px;}
+        .box {padding: 20px 20px 20px 10px;background: #EFEFF4;}
+        .box .name {color: #424242;font-size: 14px;text-align: center;}
+        /********对话框**********/
+        .clearFix:after{content: ' ';display: block;height: 100%;clear: both;visibility: hidden;}
+        .mui-content .message {width: 100%;}
+        .img {width: 40px;display: inline-block;float: left;}
+        .head_pic {width: 40px;height: 40px;cursor: pointer;background-position: center;}
+        .head_pic img {width: 40px;border-radius: 20px;}
+        .content {overflow: hidden;}
+        .bubble {margin: 0 10px 0 20px;background-color: #FFFFFF;width: auto;min-height: 40px;display: inline-block;vertical-align: top;position: relative;text-align: left;font-size: 14px;border-radius: 3px;}
+        .bubble::after,.bubble::before {position: absolute;top: 8px;border: 14px solid transparent;content: " ";}
+        .bubble-count {word-wrap:break-word;word-break:break-all;min-height:25px;}
+        .plain {padding: 9px 13px;}
+        .pre-plain {margin: 0;word-break: normal;line-height: 20px;}
+        .pre-plain .title {border-bottom: 1px solid #F1F1F1;padding-bottom: 5px;}
+        .pre-plain .text {font-size: 12px;margin: 10px 0;}
+        .text_img {width: 100%;position: relative;padding: 0 10px 0 0;}
+        .text_img img {width: 100%;height: auto;border-radius: 2px;}
+
+        .chat-content-talk-other .message{float: left;text-align: left;clear:left;}
+        .chat-content-talk-other .chat-content-talk-pic {float: left;}
+        .chat-content-talk-other .bubble {float: left;}
+        .chat-content-talk-other .bubble:before{right: 100%;border-right-color: #FFFFFF;border-right-width:14px;}
+
+        .time {font-size: 12px;color: #A0A0A0;text-align: right;margin: 4px 0 20px 0;padding-right: 20px;}
+
+        .my_bottom {position: fixed;text-align: center;bottom: 0;background: #EFEFF4;padding: 20px 10px;width: 100%;}
+        .my_bottom a {background: #DDDA5B;display: inline-block;width: 60px;height: 60px;padding: 10px 12px;border-radius: 30px;}
+        .my_bottom span {font-size: 40px;color: #FFFFFF;}
+
+        .modal {position: fixed;top: 100px;z-index: 999;width: 100%;padding: 0 40px;}
+        .modal .box {background: #FFFFFF;border-radius: 10px;padding: 15px 0;}
+        .modal .modal_title {text-align: center;border-bottom: 1px solid #EEEEEE;padding-bottom: 6px;color: #424242;}
+
+        .file {position: relative;display: inline-block;background: #E2E2E2;border: none;width: 100%;border-radius: 4px;font-size: 14px;padding: 8px 12px;overflow: hidden;color: #7F7F7F;text-decoration: none;text-indent: 0;line-height: 20px;}
+        .file input {position: absolute;font-size: 100px;right: 0;top: 0;opacity: 0;}
+
+        .my_form .submit {width: auto;}
+        .my_form {padding-bottom: 10px;}
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-snapshot-process-report">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">违章处理完成情况</h1>
+    </header>
+    <div class="mui-content">
+        <div class="box">
+            <template v-for="item in msg">
+                <div class="chat-content-talk-text chat-content-talk-other">
+                    <div class="clearFix">
+                        <div class="message">
+                            <div class="img">
+                                <div class="head_pic"><img class="avatar" :src="item.emp_avatar"/></div>
+                                <div class="name">{{item.emp_name}}</div>
+                            </div>
+                            <div class="content">
+                                <div class="bubble">
+                                    <div class="bubble-count">
+                                        <div class="plain">
+                                            <div class="pre-plain">
+                                                <div class="title">处理流程 : {{item.process}}<span></span></div>
+                                                <p class="text">{{item.content}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="time"><span>{{item.create_time}}</span></div>
+            </template>
+
+        </div>
+    </div>
+    <div class="my_bottom" v-show="!readOnly">
+        <a>
+            <span @click="report" class="mui-icon mui-icon-compose"></span>
+        </a>
+    </div>
+    <!--弹出窗-->
+    <div class="modal" v-show="flag.modal">
+        <div class="box">
+            <div class="modal_title">
+                汇报进度
+            </div>
+            <div class="modal_content">
+                <!--表单-->
+                <form class="my_form">
+                    <div class="my-input-row">
+                        <div class="left">处理流程 :</div>
+                        <div class="right">
+                            <input type="text" v-model="form.process" class="unchange" placeholder="处理流程">
+                        </div>
+                    </div>
+
+                    <div class="my-input-row">
+                        <div class="left text">处理内容 :</div>
+                        <div class="right">
+                            <textarea v-model="form.content" class="unchange" placeholder="处理内容"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="mui-button-row report_submit">
+                        <button @click.prevent="submit" class="mui-btn mui-btn-primary submit">汇报进度</button>
+                    </div>
+                </form>
+                <!--表单-->
+            </div>
+        </div>
+    </div>
+    <!--弹出窗-->
+    <div class="my-mask" @click="flag.modal = false" v-show="flag.modal"></div>
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/snapshot/processReport.js"></script>
+</body>
+</html>

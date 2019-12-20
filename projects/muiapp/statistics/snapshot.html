@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/statistics.css" rel="stylesheet" />
+    <style>
+        .list_item {display: table;width: 100%;padding:14px 15px 10px 10px;position: relative;}
+        .item_box .list_item:first-child {padding-top: 20px;}
+        .list_item:after {position: absolute;right: 15px;left: 15px;bottom: 0;height: 1px;content: '';;background-color: #EFEFEF;}
+        .list_item>div {display: table-cell;vertical-align: middle;}
+        .list_item .img {width: 40px;height: 40px;}
+        .list_item img {width: 40px;height: 40px;}
+        .list_item .text {padding-left:10px;}
+        .list_item .text p{margin: 0;color: #424242;font-size: 16px;}
+        .list_item p.small {font-size: 12px;color: #7F7F7F;margin-bottom: 2px;}
+        .list_item .mui-badge {vertical-align: top;margin-left: 3px;}
+        .list_item .right p{font-size: 12px;margin: 0;text-align:right;line-height: 19px;color: #808080;}
+        .list_item .right p:last-child {margin-bottom: 1px;}
+        .my_slider {position: absolute;top: 60px;bottom: 0;left: 0;right: 0;padding-bottom: 88px;}
+        .my_slider .mui-slider-indicator.mui-segmented-control {background: #DCE6EE;}
+        .my_slider .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-progress-bar{margin-top: -2px;}
+        .my_slider .mui-segmented-control.mui-segmented-control-inverted .mui-control-item {color: #7F7F7F;}
+        .my_slider .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {color: #424242;}
+        .my_slider .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-group .mui-slider-item {border: none;}
+        .my_slider .mui-control-item {padding: 3px 0;}
+        .my_slider .mui-slider-group {height: 100%;}
+        .mui-slider {background: #FFFFFF;border-top: 1px solid #CBDEED;}
+        .tip_none {padding: 20px 0;text-align: center;font-size: 14px;}
+        .my_slider .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-progress-bar{width: 20%;}
+        .my_slider {top: 58px;}
+        .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{background: #DCE6EE;}
+        .my_scroll .mui-scroll {padding: 8px 10px;}
+        .my_scroll a {color: #929495;background: #CDCFD0;padding: 5px 10px;font-size: 12px;border-radius: 10px;margin: 0 2px;}
+        .my_scroll a.active {color: #FFFFFF;background: #2C8CC9;}
+        .load-more {text-align: center;padding: 10px 0;margin: 0;}
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-statistics-snapshot">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">随手拍记录</h1>
+    </header>
+    <div class="mui-content">
+        <!--选项卡-->
+        <div class="mui-slider my_slider">
+            <div class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+                <a class="mui-control-item mui-active" href="#item1">待审核</a><!--1-->
+                <a class="mui-control-item" href="#item2">待处理</a><!--2-->
+                <a class="mui-control-item" href="#item3">待确认</a><!--3-->
+                <a class="mui-control-item" href="#item4">未通过</a>
+                <a class="mui-control-item" href="#item5">已确认</a><!--5-->
+            </div>
+            <div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-6"></div>
+            <div class="mui-slider-group">
+                <div id="item1" class="mui-slider-item mui-control-content mui-active">
+                    <div class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <p class="tip_none" v-show="display.audit.length === 0">暂无信息</p>
+                            <ul class="item_box">
+                                <li class="list_item" v-for="(item, index) in display.audit" @click="showWork(item)">
+                                    <div class="img"><img :src="item.img" /></div>
+                                    <div class="text">
+                                        <p>{{item.flow_name}}</p>
+                                        <p class="small">类型 : <span>{{item.vio_type_name}}</span></p>
+                                    </div>
+                                    <div class="right">
+                                        <p>操作人 : {{item.last_emp_name}}</p>
+                                        <p>{{item.history_time}}</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p @click="loadAudit" class="load-more">{{page.audit.text}}</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="item2" class="mui-slider-item mui-control-content">
+                    <div class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <p class="tip_none" v-show="display.pending.length === 0">暂无信息</p>
+                            <ul class="item_box">
+                                <li class="list_item" v-for="(item, index) in display.pending" @click="showWork(item)">
+                                    <div class="img"><img :src="item.img" /></div>
+                                    <div class="text">
+                                        <p>{{item.flow_name}}</p>
+                                        <p class="small">类型 : <span>{{item.vio_type_name}}</span></p>
+                                    </div>
+                                    <div class="right">
+                                        <p>操作人 : {{item.last_emp_name}}</p>
+                                        <p>{{item.history_time}}</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p @click="loadPending" class="load-more">{{page.pending.text}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="item3" class="mui-slider-item mui-control-content">
+                    <div class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <p class="tip_none" v-show="display.tConfirm.length === 0">暂无信息</p>
+                            <ul class="item_box">
+                                <li class="list_item" v-for="(item, index) in display.tConfirm" @click="showWork(item)">
+                                    <div class="img"><img :src="item.img" /></div>
+                                    <div class="text">
+                                        <p>{{item.flow_name}}</p>
+                                        <p class="small">类型 : <span>{{item.vio_type_name}}</span></p>
+                                    </div>
+                                    <div class="right">
+                                        <p>操作人 : {{item.last_emp_name}}</p>
+                                        <p>{{item.history_time}}</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p @click="loadTConfirm" class="load-more">{{page.tConfirm.text}}</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="item4" class="mui-slider-item mui-control-content">
+                    <div class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <p class="tip_none" v-show="display.failled.length === 0">暂无信息</p>
+                            <ul class="item_box">
+                                <li class="list_item" v-for="(item, index) in display.failled" @click="showWork(item)">
+                                    <div class="img"><img :src="item.img" /></div>
+                                    <div class="text">
+                                        <p>{{item.flow_name}}</p>
+                                        <p class="small">类型 : <span>{{item.vio_type_name}}</span></p>
+                                    </div>
+                                    <div class="right">
+                                        <p>操作人 : {{item.last_emp_name}}</p>
+                                        <p>{{item.history_time}}</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p @click="loadFailled" class="load-more">{{page.failled.text}}</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="item5" class="mui-slider-item mui-control-content">
+                    <div class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <p class="tip_none" v-show="display.confirm.length === 0">暂无信息</p>
+                            <ul class="item_box">
+                                <li class="list_item" v-for="(item, index) in display.confirm" @click="showWork(item)">
+                                    <div class="img"><img :src="item.img" /></div>
+                                    <div class="text">
+                                        <p>{{item.flow_name}}</p>
+                                        <p class="small">类型 : <span>{{item.vio_type_name}}</span></p>
+                                    </div>
+                                    <div class="right">
+                                        <p>操作人 : {{item.last_emp_name}}</p>
+                                        <p>{{item.history_time}}</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p @click="loadConfirm" class="load-more">{{page.confirm.text}}</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--选项卡-->
+    </div>
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/statistics/snapshot.js"></script>
+</body>
+</html>

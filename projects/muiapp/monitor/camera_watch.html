@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/common/mui.picker.min.css" rel="stylesheet" />
+    <link href="app/css/common/mui.dtpicker.css" rel="stylesheet" />
+    <link href="app/css/monitor.css" rel="stylesheet" />
+    <style>
+        .mui-bar-nav~.mui-content {padding: 60px 0 60px 0;}
+        #wait-load{top:60px;bottom: 0;}
+        .play {width: 100%;background: #EFEFF4;padding: 15px 0;}
+        .play .box {text-align: center;background: #FFFFFF;padding: 15px 0 5px 0;}
+        .play .box a:first-child {margin-right: 4px;}
+        .play .box img {width: 150px;height: 150px;}
+
+        .video_box {padding: 10px 15px;margin: 15px 0;background-color: #FFFFFF;}
+        .video_box .title {color: #3899E8;font-size: 16px;}
+        .time_select {padding-top: 15px;position: relative;}
+        .time_select label {position: absolute;font-size: 14px;top: 20px;}
+        .time_select .input {width: 100%;padding: 0 70px;}
+        .time_select .input input {height: 34px;font-size: 14px;padding: 6px 10px;border: none;background: #EFEFEF;}
+        .time_select .turn_back {position: absolute;right: 0;top: 14px;background-color: #3899E8;}
+
+        .alarm {background-color: #FFFFFF;}
+        .alarm li{display: table;width: 100%;padding: 10px 15px 0 15px;}
+        .alarm li > div {display: table-cell;vertical-align: middle;}
+        .alarm .left {width: 45px;}
+        .alarm .img {width: 30px;}
+        .alarm .img img {width: 30px;height: 30px;}
+        .alarm .right {border-bottom: 1px solid #EFEFEF;padding-bottom: 6px;}
+        .alarm li:last-child .right {border: none;}
+        .alarm p{margin: 0;color: #424242;}
+        .alarm .time {font-size: 12px;color: #8f8f94;}
+
+        /*弹出的蒙版*/
+        *{margin: 0;padding: 0;}
+        select{background-color: white;margin: 0;padding: 0;width: auto;border: 1px solid black;}
+        .pos_bg{width: 100%;bottom: 0;right: 0;left:0;position: fixed;top: 0;z-index: 2000;}
+        .pos_div{width: 80%;height: 52%;background-color: white;margin: 40% auto 0 auto;border-radius: 25px;}
+        .pos_msg{font-size: 25px;text-align: center;padding: 20px;border-bottom: 1px solid #CACACA;}
+        .pos_playtime{font-size: 18px;padding:6% 20px 20px 5%;position: relative;}
+        .pos_playtime input{position: absolute;width: 55%;height: 34px;margin-left: 10px;top: 20%;font-size: 13px;border:none;border-radius: 10px;background-color: #ddd;padding-left: 15px;}
+        .show_before ul{display: inline-block;padding-top: 10px;position: absolute;top: 5px;margin-left: 8px;}
+        .show_before ul li{width: 55px;float: left;text-align: center;padding:4px 0 4px 1px;margin: 2px;
+            list-style: none;font-size:13px;background-color: #ddd;border-radius: 10px;color: #797979;}
+        .show_before ul li.time_show{background-color: #1c84e1;color: white;}
+        .pos_warning{ width: 80%;height: 40px;background-color: #ddd;margin: 15px auto 0 auto;
+            border-radius: 80px;font-size: 14px;color: #797979;position: relative;text-align: center;line-height: 40px;}
+        .pos_warning img{width: 20px;}
+        .pos_btn{background-color: #1c84e1;color: white;font-size: 20px;width: 50%;margin:6% auto 0 auto;
+            padding: 10px;text-align: center;border-radius: 10px;}
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/mui.picker.min.js"></script>
+    <script src="app/js/common/mui.dtpicker.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-monitor-camera-watch">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">视频监控</h1>
+    </header>
+    <div class="mui-content">
+        <!--顶部选项卡-->
+        <div class="tap_slider">
+            <div class="left tab_ctrl">
+                <span class="mui-icon mui-icon-back"></span>
+            </div>
+            <div class="right tab_ctrl">
+                <span class="mui-icon mui-icon-forward"></span>
+            </div>
+            <div class="my_slider">
+                <div class="mui-slider">
+                    <div class="mui-slider-group">
+                        <div v-for="item in cameraData" class="mui-slider-item">
+                            <div class="img">
+                                <img src="img/monitor/svg/camera.svg" />
+                            </div>
+                            <p class="setting selected" v-if="item.camera_id === defaultCameraId" @click.stop="cameraRemove(item)">取消默认</p>
+                            <p @click.stop="cameraSet(item)" v-else class="setting">设为默认</p>
+                            <span class="status">运转 : <span :class="{danger:item.state != 0}">{{item.state | state}}</span></span>
+                            <div class="info">
+                                <h4>{{item.camera_name}}</h4>
+                                <p>位置 : {{item.area_name}}</p>
+                                <p>型号 : {{item.unit_type}}</p>
+                                <p>接入时间 : {{item.time}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--顶部选项卡-->
+        <div class="alarm">
+            <!--视频播放-->
+            <div class="play">
+                <div class="box">
+                    <a @click="play"><img src="img/monitor/svg/play.svg" /></a>
+                    <a @click="playback"><img  src="img/monitor/svg/playback.svg" /></a>
+                </div>
+            </div>
+            <!--视频播放-->
+        </div>
+    </div>
+    <!--弹窗蒙版-->
+    <div v-show="flag.time">
+        <div @click="flag.time = false" class="my-mask"></div>
+        <div class="pos_div pos_bg">
+            <div class="pos_msg">查看录像回放</div>
+            <div class="pos_playtime">
+                <span>开始时间:</span>
+                <input type="text" @click="selectTime" readonly="readonly" :value="text.time" placeholder="选择开始时间">
+            </div>
+            <div class="pos_playtime show_before">
+                <span>回放时长:</span>
+                <ul id="pos_ul">
+                    <li v-for="(item,index) in duration" @click="durationActive = index" :class="{'time_show':index === durationActive}">{{item.text}}</li>
+                </ul>
+            </div>
+            <!--警告-->
+            <div class="pos_warning">
+                <img src="img/monitor/warning.png" >
+                <span>回放时间越长加载速度越慢</span>
+            </div>
+            <div type="button" @click="confirm" class="pos_btn">查询录像</div>
+        </div>
+    </div>
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/monitor/cameraWatch.js"></script>
+</body>
+</html>

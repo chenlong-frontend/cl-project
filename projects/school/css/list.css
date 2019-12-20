@@ -1,0 +1,24 @@
+.main_right {height: 790px;}
+.main_right > img {width: 786px;height: auto;}
+.pages {padding: 20px 18px;}
+.pages li {border-bottom: 1px solid #c8c7c7;}
+.pages a {display: block;font-size: 15px;color: #383838;padding: 15px 0;}
+.pages a > span {float: right;}
+
+.pageMenu li::selection{background:transparent;}
+.clearfix{zoom:1;}
+.clearfix:after{content:"";display: block;clear: both;}
+.hide{display: none;}
+.notContent{padding: 15px 0;text-align: center;}
+
+.page{text-align: center;width: 100%;margin: 20px auto;}
+.pageMenu{display: inline-block;position: relative;width: 100%;}
+
+.pageMenu li{border: solid thin #ddd;margin: 3px;float: left;padding: 5px 10px;cursor: pointer;background: #fff;}
+.pageMenu li.disabled{ background-color: #DDDDDD;   cursor: not-allowed;}
+.pageMenu li.active{ border: solid thin #0099FF;background-color: #0099FF;color: white;}
+.pageMenu li.last{background: transparent;border:0;position: absolute;top: -4px;right: 0;}
+.page .keuInput{padding: 0 5px;width: 50px;border: solid thin #ddd;height: 29px;outline: none;text-align: center;font-size: 16px;}
+.page .btnSure{padding: 4px 8px;border: solid thin #ddd;outline: none;text-align: center;font-size: 16px;background: #fff;position: relative;top: 2px;}
+.page .btnSure:hover{cursor: pointer;}
+

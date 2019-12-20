@@ -1,0 +1,8 @@
+.takePhoto {background-color: #DCE6EE;width: 100%;padding: 10px 20px;}
+.location {font-size: 16px;color: #868787;vertical-align: 8px;}
+.loactionImg {margin-top: 6px;width: 26px;}
+.time {color: #868787;font-size: 14px;padding: 4px;}
+.photoBox {padding: 20px 0;}
+.circleBox {background-color: #3899E8;padding: 18px 0;width: 150px;height: 150px;border-radius: 75px;text-align: center;margin: 0 auto;border: 6px solid #8ABFEB;}
+.circleBox > span {display: block;font-size: 16px;color: #FFFFFF;}
+.circleBox > img {width: 56px;margin: 10px 0;}

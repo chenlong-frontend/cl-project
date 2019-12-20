@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/snapshot.css" rel="stylesheet" />
+    <style>
+        .mui-content {background: #FFFFFF;}
+        .mui-content {padding-bottom: 120px;}
+        .photo_box {padding: 40px 50px 10px 50px;background-color: #DCE6EE;}
+        .img_box {width: 100%;position: relative;}
+        .img_box > img {width: 100%;height: auto;border-radius: 10px;}
+        .photo_box .bottom {text-align: center;padding: 10px 0;}
+        .photo_box .bottom > a {color: #000000;font-size: 14px;}
+        .photo_box .bottom > a > span {color: #3899E8;font-size: 22px;padding-right: 10px;vertical-align: bottom;}
+        .photo_box .tips {width: 100%;height: 250px;background-color: #FFFFFF;display: table;border-radius: 10px;text-align: center;}
+        .photo_box .tips > .icon {font-size: 100px;display: table-cell;vertical-align: middle;color: #D7D7D7;}
+        .my_bottom_progress {bottom: 80px;}
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-snapshot-process-submit">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">违章处理完成情况</h1>
+    </header>
+    <div class="mui-content">
+        <!--拍照-->
+        <div class="photo_box">
+            <div class="img_box">
+                <div class="tips" v-show="photo.length ===0">
+                    <span @click="takePhoto" class="mui-icon mui-icon-camera icon"></span>
+                </div>
+                <img :src="photo" v-show="photo.length !==0" />
+            </div>
+            <div class="bottom">
+                <a><span class="mui-icon mui-icon-camera"></span>点击拍摄照片</a>
+            </div>
+        </div>
+        <!--拍照-->
+
+        <!--表单-->
+        <form class="my_form">
+            <div class="my-input-row">
+                <div class="left">处理人 :</div>
+                <div class="right level">
+                    <input type="text" :value="form.processor" class="unchange" readonly="readonly">
+                </div>
+            </div>
+
+            <div class="my-input-row">
+                <div class="left text">处理说明 :</div>
+                <div class="right">
+                    <textarea v-model="form.process_advise" :value="form.process_advise" placeholder="请填写处理说明"></textarea>
+                </div>
+            </div>
+        </form>
+        <!--表单-->
+    </div>
+
+    <!--底部提交-->
+    <div class="my_bottom_progress">
+        <div class="progress">
+            <div class="left">
+                <a>待审核</a>
+                <span></span>
+                <a class="active danger">待处理</a>
+                <span></span>
+                <a>已处理</a>
+                <span></span>
+                <a>已确认</a>
+            </div>
+            <div class="right">
+                <div class="time">
+                    <p>变更时间</p>
+                    <p class="change_time">{{text.time}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="my_bottom_bth">
+        <div class="button model_2">
+            <button @click="submit" class="submit">上传</button>
+        </div>
+    </div>
+    <!--底部提交-->
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/snapshot/processSubmit.js"></script>
+</body>
+</html>

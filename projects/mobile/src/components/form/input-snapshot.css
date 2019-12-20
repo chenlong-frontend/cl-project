@@ -1,0 +1,6 @@
+.myInputRow {display: table;width: 100%;margin: 7px 0;}
+.left {display: table-cell;width: 80px;text-align: right;color: #424242;font-size: 16px;padding: 10px 0;}
+.right {display: table-cell;padding: 0 10px;position: relative;}
+.right .input {line-height: 21px;outline: 0;padding: 7px 15px;color: #7F7F7F;margin: 0;height: 35px;
+    border: none;border-radius: 6px;width: 100%;font-size: 14px;max-width: 250px;background-color: #EBF5FD;}
+.right .unread {background-color: #E2E2E2;}

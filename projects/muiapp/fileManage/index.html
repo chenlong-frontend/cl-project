@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/filemanage.css" rel="stylesheet" />
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+    <script src="app/js/common/vue-router.min.js"></script>
+</head>
+<body>
+<div id="app-file-manage-index">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">我的文件</h1>
+    </header>
+
+    <div class="mui-content">
+        <router-view></router-view>
+    </div>
+    <!--底部导航-->
+    <nav class="bottom_tab">
+        <router-link v-for="(item,index) in tabData" @click.native="tabTurn(index)" :key="index" :to="item.url" class="item my_active">
+            <img :src="item.img" />
+            <p class="label">{{item.text}}</p>
+        </router-link>
+        <a class="item">
+            <img src="img/filemanage/qrcode_grey.png" />
+            <p class="label">扫码查看</p>
+        </a>
+    </nav>
+    <!--底部导航-->
+</div>
+
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/fileManage/component/file.js"></script>
+<script src="app/js/fileManage/component/work.js"></script>
+<script src="app/js/fileManage/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+.tableLayout {background: #ffffff;padding: 15px;position: relative;color:#7F7F7F;}
+.tableTitle {margin: 0 0 0 40px;color: #424242;font-size: 16px;padding: 10px;}
+.tableBox {display: table;}
+.tableLayout:after {position: absolute;content: ' ';bottom: 5px;height: 1px;right: 18px;left: 18px;background: #EFEFEF;}
+.tableItem img {width: 30px;height: 34px;margin-top: 10px;}
+.tableItem {display: table-cell;vertical-align: top;padding-right: 10px;}
+.Item{display: table;margin: 10px 0; }
+.Left {display: table-cell; vertical-align: top;width:78px;}
+.Right {display: table-cell;}
+.tableItemLeft {position: relative;display: table;width:54%;}
+.tableItemLeft:after {position: absolute;content: ' ';top: 10px;bottom: 10px;width: 1px;right: 10px;background: #EFEFEF;}
+.process {background: #ffffff;padding: 10px 10px 10px 54px;color: #7F7F7F;}
+.decoration{display: inline-block;width:90%;}
+.buttonBox{width:100%;height:100px;text-align: center; background-color: #fff;position: fixed;bottom:0px;padding-top: 20px;}
+.accept{width:70%;margin-left: 15%; background-color: #3899E8;color:#fff;height:60px;line-height: 60px;text-align: center; font-size: 26px;border-radius: 10px;}

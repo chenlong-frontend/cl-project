@@ -1,0 +1,4 @@
+.photoBox {padding: 15px 30px;background-color: #DCE6EE;box-sizing: border-box;}
+.photoBox > p {color: #000000;font-size: 14px;margin-top: 0;margin-bottom: 10px;}
+.imgBox {width: 100%;position: relative;padding: 0 20px;box-sizing: border-box;}
+.photoInfo {width: 100%;height: auto;border-radius: 10px;}

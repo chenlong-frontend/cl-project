@@ -1,0 +1,3 @@
+.bottom {position: fixed;text-align: center;bottom: 0;padding: 20px 10px;width: 100%;box-sizing: border-box;}
+.bottom a {background: #DDDA5B;display: inline-block;width: 60px;box-sizing: border-box;height: 60px;padding: 10px 12px;border-radius: 30px;}
+.bottom a img {width: 32px;height: 32px;margin-top: 4px;}

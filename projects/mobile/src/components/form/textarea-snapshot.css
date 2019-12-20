@@ -1,0 +1,4 @@
+.myInputRow {display: table;width: 100%;margin: 7px 0;}
+.left {display: table-cell;width: 80px;text-align: right;color: #424242;font-size: 16px;padding: 10px 0;vertical-align: top;}
+.right {display: table-cell;padding: 0 10px;position: relative;}
+.textarea {resize: none;color: #7F7F7F;border: none;width: 100%;max-width: 205px;background: #EBF5FD;border-radius: 6px;padding: 10px;height: 100px;font-size: 14px;}

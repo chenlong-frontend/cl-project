@@ -1,0 +1,5 @@
+.resultContent {text-align: center;}
+.img {width: 160px;height: 160px;margin: 30px 0 40px 0;}
+.result {font-size: 28px;color: #3899E8;font-weight: bolder;margin: 40px 0;line-height: 36px;}
+.tip {color: #000000;padding: 0 20px;font-size: 18px;}
+.bottom {width: 100%;position: absolute;bottom: 0;padding: 0 50px 40px 50px;box-sizing: border-box;}

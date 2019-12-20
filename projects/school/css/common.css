@@ -1,0 +1,92 @@
+/**所有页面公用开始**/
+html {font-size: 20px;}
+
+a {cursor: pointer;}
+ul {list-style: none;margin: 0;padding: 0;}
+
+.my_nav {padding: 0;margin: 0;}
+.my_nav > li{float: left;list-style: none;}
+.my_nav > li > a {color: #b7abbc;}
+.separate {width: 1px;height: 14px;border-right: 1px solid #b7abbc;display: inline-block;}
+
+.box {width: 1190px;margin: 0 auto;position: relative;padding: 0 37px;}
+.navbar-logo {padding: 22px 0;}
+.logo_box {width: 320px;height: 41px;background: url("../img/logo.png") no-repeat;}
+header {height: 42px;padding: 11px 0;background-color: #4f094b;width: 100%;}
+header > .box {height: 42px;}
+.header_left {float: left;display: inline-block;}
+.header_left > a {color: #b7abbc;font-size: 14px;line-height: 14px;cursor: pointer;}
+.header_right {float: right;width: 263px;height: 20px;}
+.my_nav {float: left;}
+.my_nav > li > .separate {height: 14px;vertical-align: middle;margin: 0 6px;}
+.my_nav > li > a {font-size: 14px;line-height: 14px;}
+
+nav {background-color: #62085f;width: 100%;box-shadow:0 5px 5px rgba(0, 0, 0,.4);position:relative;}
+nav > .box {padding-left: 35px;padding-right: 30px;}
+.nav li>a {background-color: #62085f!important;}
+.nav li>a:focus,.nav li>a:hover{background-color: #6d136a!important;}
+.my_navBar {margin: 0;padding: 0;border: none;}
+
+.my_navBar button {color: #ffffff;}
+.my_navBar .navbar-right  a {color: #ffffff;}
+.my_navBar .dropdown-toggle  {line-height: 88px;font-size: 16px;padding: 0 15px;}
+.my_navBar .dropdown-menu>.active>a {color: #ffffff;background-color: #6d136a;}
+.my_navBar .dropdown-menu {min-width: 106px;background-color: #62085f; }
+.my_navBar .dropdown-menu a {padding: 15px 20px;}
+.my_navBar .dropdown-menu a:hover{background-color: #6d136a;color:  #ffffff;}
+
+
+footer {width: 100%;background-color: #3d3e4b;}
+footer .col-lg-6 {padding: 0;}
+.foot_head {color: #ffffff;padding: 50px 0 45px 0;}
+.foot_head h4 {font-weight: bold;margin-bottom: 48px;}
+.foot_head .col-md-6 {padding: 0 20px;}
+.school_info h4 {margin-bottom: 60px;}
+.school_info > p{font-size: 16px;line-height: 1.8em;}
+.foot_nav > a{display: block;color: #ffffff;font-size: 16px;padding: 15px 0;border-bottom: 1px solid #51525d;}
+.foot_nav > a > i {float: right;margin-top: 3px;}
+.foot_contact > div {font-size: 16px;line-height: 33px;padding: 10px 0;}
+.foot_head::after {content: '.';display: block;line-height: 9;width: 0;height: 0;overflow: hidden;clear: both;visibility: hidden;}
+
+.copyright {background-color: #2e2e2e;color: #e4e4e4;padding: 45px;}
+.copyright > p{text-align: center;font-size: 14px;}
+/**所有页面公用结束**/
+
+/**列表和内容页公用开始**/
+main {width: 100%;background: #f1f1f1;padding: 12px 0;}
+main::after {content: '.';display: block;width: 0;height: 0;line-height: 9;overflow: hidden;clear: both;visibility: hidden;}
+main > .box {padding: 0 20px;}
+.main_nav {padding: 25px 0;}
+.main_nav > a {color: #383838;}
+
+.main_left {width: 250px;height: 840px;float: left;clear: left;background-color: #ffffff;position: relative;}
+.main_title {background-color: #63065f;color: #ffffff;margin: 0;padding: 15px 20px;font-weight: bold;border-bottom: 2px solid #ffffff;}
+.main_item {display:block;font-size: 17px;color: #383838;padding: 15px 20px;border-bottom: 1px solid #c8c7c7;background-color: #eeefeb;}
+.active {background-color: #fdcc6d;color: #ffffff;}
+.main_item:hover {text-decoration: none;background-color: #fdcc6d;color: #ffffff;}
+.main_bottom {position: absolute;bottom: 0;padding: 0 13px;}
+.main_bottom > .img {display: block;border: 1px solid #b9b9b9;padding: 2px;border-radius: 1px;margin-bottom: 20px;}
+.main_bottom > .img > img {width: 220px;height: 150px;}
+
+.main_right {float: right;width: 880px;background-color: #ffffff;margin-top: 49px;border-top: 8px solid #63065f;padding: 40px 45px;}
+/**列表和内容页公用结束**/
+
+
+@media screen and (min-width: 769px) {
+    .navbar .dropdown:hover > .dropdown-menu {
+        display: block;
+    }
+}
+
+@media (max-width: 1210px) {
+   .box {width: 100%;!important;}
+}
+
+@media (max-width: 768px) {
+    header {display: none;}
+    nav > .box {padding:0;}
+    .my_navBar .dropdown-toggle {line-height: 50px;font-size: 14px;padding: 0 25px;}
+    .my_navBar .navbar-right {margin: 0 -15px;}
+    .my_navBar .dropdown-menu {margin: 0;padding: 0;}
+    .my_navBar .fa-angle-down {float: right;}
+}

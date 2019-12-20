@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/workflow.css" rel="stylesheet" />
+    <style>
+        .mui-slider {background: #FFFFFF;border-top: 1px solid #CBDEED;}
+        .tip_none {padding: 20px 0;text-align: center;font-size: 14px;}
+        .my_slider .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-progress-bar {width: 20%;}
+        .my_slider {top: 98px;padding-bottom:40px;}
+        .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {background: #DCE6EE;border-bottom: 0px;}
+        .my_scroll .mui-scroll {padding: 8px 10px;}
+        .my_scroll a {color: #929495;background: #CDCFD0;padding: 5px 10px;font-size: 12px;border-radius: 10px;margin: 0 2px;}
+        .my_scroll a.active {color: #FFFFFF;background: #2C8CC9;}
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-workflow-my-launch">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">我发起的</h1>
+        <a class="icon"><img src="img/workflow/sort.png" /></a>
+        <a class="icon"><img src="img/workflow/search.png" /></a>
+    </header>
+    <div class="mui-content">
+        <!--横向滚动-->
+        <div class="my_scroll mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+            <div class="mui-scroll">
+                <a v-for="(item,index) in navBar" @click="navTab(index)" :class="{active:index===flag.navActive}">{{item.node_name}}</a>
+            </div>
+        </div>
+        <!--横向滚动-->
+        <!--选项卡-->
+        <div class="mui-slider my_slider">
+            <div v-show="tabItem.length > 0" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+                <a v-for="(item,index) in tabItem" class="mui-control-item" :class="{'mui-active':index===0}" :href="'#item'+index">{{item.alias}}</a>
+            </div>
+            <div class="mui-slider-progress-bar"></div>
+            <div class="mui-slider-group">
+                <div v-for="n in tabItemLen" :id="'item'+(n-1)" :class="{'mui-active':n===1}" class="mui-slider-item mui-control-content">
+                    <div class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <p class="tip_none" v-show="displayData.length === 0">暂无信息</p>
+                            <ul class="item_box">
+                                <li v-for="item in displayData" class="list_item">
+                                    <div class="img"><img :src="item.icon" /></div>
+                                    <div class="text">
+                                        <p>{{item.flow_name}}<span class="mui-badge" :style="{background:item.alias_css}">{{item.alias}}</span></p>
+                                    </div>
+                                    <div class="right">
+                                        <p>操作人 : {{item.last_emp_name}}</p>
+                                        <p>{{item.history_time}}</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--选项卡-->
+        </div>
+
+        <!--底部计数-->
+        <div class="count">
+            <p>共{{displayData.length}}条</p>
+        </div>
+    </div>
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/workflow/my_launch.js"></script>
+</body>
+</html>

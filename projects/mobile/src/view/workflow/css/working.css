@@ -1,0 +1,8 @@
+.flexContainer {background-color: #FFFFFF;}
+.flexItem {text-align: center;padding-top: 20px;position: relative;}
+.flexItem p {color: #000000;}
+.img {width: 40%;}
+.count {position: absolute;top: 0;margin-left: 5px}
+.subTitle {padding: 12px 20px;color: #242424;font-size: 14px;background-color: #FFFFFF;}
+.menu-line {border-bottom: 1px solid #EEEEEE;}
+:global(.workflow-working-icon .am-grid-icon) {width: 42px;height: 42px;}

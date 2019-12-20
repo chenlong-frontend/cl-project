@@ -1,0 +1,5 @@
+.box {background-color: #DBDBDB;display: table;border-radius: 15px;padding: 3px 20px;max-width: 300px;margin: 0 auto;}
+.img {display: table-cell;vertical-align: middle;font-size: 16px;width: 20px;}
+.img img {width: 20px;height: 17px;}
+.box > p {display: table-cell;font-size: 12px;margin: 0;line-height: 14px;color: #424242;vertical-align: middle;padding-left: 8px;}
+.link {color: #424242;}

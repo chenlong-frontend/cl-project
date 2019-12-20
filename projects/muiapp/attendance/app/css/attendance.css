@@ -1,0 +1,50 @@
+/**************蒙版背景*************/
+.my_mask {position: fixed;right: 0;top: 0;left: 0;bottom: 0;z-index: 1999;background: #000000;opacity: 0.25;}
+.msg_show {position: fixed;z-index: 2000;width: 100%;top: 50%;margin-top: -80px;}
+.msg_show .box {width: 250px;margin: 0 auto;background: #FFFFFF;border-radius: 8px;padding-bottom: 0px;}
+.msg_show .title {text-align: center;padding: 6px 0;border-bottom: 1px solid #EEEEEE;font-size:12px;}
+.msg_show .content {padding: 10px;font-size: 14px;text-align: center;border-bottom: 1px solid #EEEEEE;}
+.msg_show .foot {width: 100%;display: table;}
+.msg_show .foot .perch{display: table-cell;width:25%}
+.msg_show .foot .foot_box {display: table-cell;width: 50%;padding:10px 10px 10px 6px;}
+.msg_show .foot .foot_box button {width: 50%;}
+
+.title {text-align: center;padding: 15px;position: relative;color: #166DBD;}
+.title img {position: absolute;top: 18px;right: 35px;width: 24px;height: 24px;}
+.timeline{margin: 20px 0;padding: 0 10px;}
+.time_title {display: table;width: 100%;background: #CBDEED;border-radius: 10px 10px 0 0;}
+.time_title li {display: table-cell;padding: 12px 0;}
+.time_title li{text-align: center}
+.time_title li a {color: #0663B9;font-size: 18px;width: 30px;padding: 5px 0;display: inline-block;}
+.time_title .active {background: #3899E8;color: #FFFFFF;border-radius: 15px;}
+.time_work {background: #FFFFFF;padding: 15px 0;border-radius: 0 0 10px 10px;}
+.time_work .left {position: absolute;width: 100px;text-align: center;}
+.time_work .left span {display: block;}
+.time_work .left .text {background: #3899E8;color: #FFFFFF;width: 60px;margin: 0 auto;border-radius: 15px;padding: 5px 0;}
+.time_work .left .line {width: 2px;background: #3899E8;height: 40px;margin: 0 auto;}
+.time_work .left .line.long {height: 60px;}
+.time_work .left .circle {width: 30px;height: 30px;border-radius: 15px;background: #CCCCCC;margin: 0 auto;}
+.time_work .right {text-align: left;padding-left: 110px;}
+.time_work .right .time {font-size: 18px;line-height: 30px;color: #2F95E7;}
+.time_work .right .info{color: #353535;font-size: 14px;}
+.time_work .right .start {height: 91px;}
+.time_work .right .end {height: 91px;margin-top: 20px;}
+.time_work .right .process {height: 70px;}
+.time_work .right .process .time,.time_work .right .process .info {color: #CCCCCC;}
+.time_work .no_msg{min-height: 300px;color: gray;text-align: center;line-height: 300px;}
+
+.my_modal {position: fixed;top: 100px;z-index: 999;width: 100%;padding: 0 25px;display: none;}
+.my_modal .box{background: #FFFFFF;padding: 0 15px 15px 15px;border-radius: 15px;}
+#schedule_box{width: 100%;padding: 35px 20px;font-size: 13px;background: #FAFAFA;border-radius: 15px;}
+.schedule-hd{display: flex;justify-content: space-between;padding: 0 15px;}
+.today{flex: 1;text-align: center;}
+.ul-box{overflow: hidden;}
+.ul-box > li{float: left;width: 14.28%;text-align: center;padding: 5px 0;}
+.other-month{color: #999999;}
+.current-month{color: #333333;}
+.today-style{border-radius: 50%;background: #58d321;}
+.arrow{cursor: pointer;}
+.dayStyle{display: inline-block;width: 35px;height: 35px;border-radius: 50%;text-align: center;line-height: 35px;cursor: pointer;}
+.current-month > .dayStyle:hover{background: #00BDFF;color: #ffffff;}
+.today-flag{background: #00C2B1;color: #fff;}
+.selected-style {background: #00BDFF;color: #ffffff;}

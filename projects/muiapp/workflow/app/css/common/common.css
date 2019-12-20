@@ -1,0 +1,26 @@
+/*********统一样式***********/
+ul {list-style: none;padding: 0;margin: 0;}
+
+/*********顶部导航*********/
+.mui-bar-nav {background: #3899E8;height: 60px;padding: 10px;}
+.mui-bar-nav > .mui-icon-left-nav {color: #FFFFFF;}
+.mui-bar-nav > .mui-title {color: #FFFFFF;text-align: left;font-size: 20px;}
+.mui-bar-nav > .icon{float: right;display: inline-block;margin-right: 10px;margin-top: 10px;}
+.mui-bar-nav > .icon >img {width: 20px;height: 20px;}
+
+/***********等待加载样式*************/
+#wait-load {position: fixed;top: 60px;left: 0;right: 0;bottom: 0;background: #FFFFFF;z-index: 9999;text-align: center;}
+#wait-load img {width: 40px;height: 40px;margin-top: 30px;}
+
+/***********内容位置*************/
+.mui-bar-nav~.mui-content {padding-top: 60px;}
+
+/**************自定义蒙层*************/
+.my-mask {position: fixed;right: 0;top: 0;left: 0;bottom: 0;z-index: 1999;background: #000000;opacity: 0.4;}
+
+/**************数据加载弹出层*************/
+.wait-data {position: fixed;right: 0;top: 0;left: 0;bottom: 0;z-index: 1999;}
+.wait-data .box {position: absolute;height: 75px;top: 50%;margin-top: -50px;width: 100%;}
+.wait-data .box .wait-tips {text-align: center;width:125px;border-radius: 8px;height: 75px;margin: 0 auto;padding-top: 30px;background: #000000;opacity: 0.4;}
+.wait-data .box span {color: #FFFFFF;font-size: 12px;vertical-align: top;}
+.wait-data .box img {width: 20px;height: 20px;}

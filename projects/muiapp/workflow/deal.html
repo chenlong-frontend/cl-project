@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/workflow.css" rel="stylesheet" />
+    <style>
+        .mui-slider {background: #FFFFFF;}
+        .tip_none {padding: 20px 0;text-align: center;font-size: 14px;}
+        .issue_sort {display: table;width: 100%;background: #EFEFEF;position: fixed;top: 0;}
+        .issue_sort>div {display: inline-block;width: 50%;text-align: center;padding: 8px 0;}
+        .issue_sort a {color: #7F7F7F;background-color: #E0E0E0;padding: 3px 30px;border-radius: 15px;font-size: 12px;}
+        .issue_sort a.my_active {color: #FFFFFF;background: #3899E8;}
+        #item2 .mui-scroll {padding-top: 40px;}
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-workflow-deal">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">处理事项</h1>
+        <a class="icon"><img src="img/workflow/sort.png" /></a>
+        <a class="icon"><img src="img/workflow/search.png" /></a>
+    </header>
+    <div class="mui-content">
+        <!--选项卡-->
+        <div class="mui-slider my_slider">
+            <div class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+                <a class="mui-control-item mui-active" href="#item1">待我处理</a>
+                <a class="mui-control-item" href="#item2">我处理的</a>
+            </div>
+            <div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-6"></div>
+            <div class="mui-slider-group">
+                <div id="item1" class="mui-slider-item mui-control-content mui-active">
+                    <div class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <p v-show="deal.length === 0" class="tip_none">暂无信息</p>
+                            <ul class="item_box">
+                                <li v-for="item in deal" class="list_item">
+                                    <div class="img"><img :src="item.icon" /></div>
+                                    <div class="text">
+                                        <p>{{item.flow_name}}<span class="mui-badge"  :style="{background:item.alias_css}">{{item.alias}}</span></p>
+                                        <p class="small">上传人 : <span>{{item.start_emp_name}}</span></p>
+                                    </div>
+                                    <div class="right">
+                                        <p>操作人 : {{item.last_emp_name}}</p>
+                                        <p>{{item.history_time}}</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="item2" class="mui-slider-item mui-control-content">
+                    <div class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <p class="tip_none" v-show="proActiveTip">暂无信息</p>
+                            <div class="issue_sort">
+                                <div><a :class="{my_active:flag.proActive}" @click="flag.proActive=true">流程进行中</a></div>
+                                <div><a :class="{my_active:!flag.proActive}"  @click="flag.proActive=false">流程已结束</a></div>
+                            </div>
+                            <div class="box">
+                                <ul class="item_box">
+                                    <li v-for="item in myDeal" class="list_item">
+                                        <div class="img"><img :src="item.icon" /></div>
+                                        <div class="text">
+                                            <p>{{item.flow_name}}<span class="mui-badge"  :style="{background:item.alias_css}">{{item.alias}}</span></p>
+                                            <p class="small">上传人 : <span>{{item.start_emp_name}}</span></p>
+                                        </div>
+                                        <div class="right">
+                                            <p>操作人 : {{item.last_emp_name}}</p>
+                                            <p>{{item.history_time}}</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--选项卡-->
+    </div>
+    <!--底部计数-->
+    <div class="count">
+        <p>待处理{{countTotal}}条</p>
+    </div>
+    <!--底部计数-->
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/workflow/deal.js"></script>
+</body>
+</html>

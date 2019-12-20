@@ -1,0 +1,91 @@
+/* created by tpbaby */
+.dialogCss{
+  box-shadow: 0 4px 20px rgba(0,0,0,.3);
+}
+
+/*安全帽上传图片样式*/
+.tp_addArea{
+  .imgUpLoad .avatar-uploader .el-upload {
+    width: 160px;
+    height:160px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .imgUpLoad .avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    line-height: 160px;
+    text-align: center;
+  }
+}
+
+/*安全帽样式*/
+.tp_entryInfo {
+  .ibox > .ibox-content {background:#FAFAFA}
+  .el-tabs--border-card { background:#FAFAFA}
+  .el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active { background:#FAFAFA}
+  .el-tabs__content{position:static;}
+  .el-input__inner{height:25px;}
+  .inputstyle {
+    .el-input__inner{
+      background-color: #FAFAFA;
+      width: 58%;
+      cursor: pointer;
+    }
+  }
+  .inputstyle2 {
+    width: 70px;
+    .el-input__inner{
+      background-color: #FAFAFA;
+      cursor: not-allowed;
+    }
+  }
+}
+
+/*横线hr*/
+.line_hr{
+  width: 100%;
+  height: 3px;
+  border-radius: 2px;
+  background-color: #ddd;
+  margin-top: 20%;
+}
+
+/*vr体验点*/
+.readstyle {
+  .el-input__inner {
+    background-color: #FAFAFA;
+    cursor: pointer;
+  }
+}
+
+.tp_changeLog .el-textarea__inner{
+  height: 120px;
+}
+
+.tp_creatTask .el-textarea__inner {
+  height: 100px;
+}
+
+.tp_creatTask .choosePeople .el-input .el-input__inner{
+  cursor: pointer;
+  background-color: #F5F5F5;
+}
+.tp_addLog .el-textarea__inner{
+  height:100px;
+}
+
+/* 人员定位 */
+.tp_personmsg {
+  .el-aside{
+    background-color: white;
+  }
+  .rightBox{
+    position: absolute;
+    right: 0px;
+    top:0px;
+  }
+}
+
+

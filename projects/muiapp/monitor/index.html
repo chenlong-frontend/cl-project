@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/monitor.css" rel="stylesheet" />
+    <style>
+        .slide-tab {position: fixed;width: 100%;top: 130px;bottom: 60px;overflow: auto;}
+        .camera-list {padding-top: 40px;overflow: hidden;}
+        .camera-list .fixed_box {overflow: auto;position: absolute;top: 40px;bottom: 0;width: 100%;}
+        .slide-fade-enter-active {
+            transition: all .3s ease;
+        }
+        .slide-fade-leave-active {
+            transition: all .4s ease;
+        }
+        .slide-fade-enter{
+            transform: translateX(100%);
+        }
+        .slide-fade-leave-to{
+            transform: translateX(-100%);
+        }
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+    <script src="app/js/common/vue-router.min.js"></script>
+</head>
+<body>
+<div id="app-monitor-camera">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">视频监控</h1>
+    </header>
+
+    <div class="folder">
+        <div class="top folder_ctrl">
+            <div class="img">
+                <img src="img/monitor/svg/header.svg" alt="pic" />
+            </div>
+            <div class="text">
+                <p class="department">{{department.name}}</p>
+                <p class="address">{{department.address}}</p>
+            </div>
+            <div class="right">
+                <h3 class="position">共{{department.count}}台</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="mui-content">
+        <transition name="slide-fade">
+          <router-view class="slide-tab"></router-view>
+        </transition>
+    </div>
+    <!--底部导航-->
+    <nav class="bottom_tab">
+        <router-link v-for="(item,index) in tabData" @click.native="tabTurn(index)" :key="index" :to="item.url" class="item my_active">
+            <img :src="item.img"  />
+            <p class="label">{{item.text}}</p>
+        </router-link>
+    </nav>
+    <!--底部导航-->
+</div>
+
+<div id="wait-load" v-show="display" :style="{bottom:bottom}"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/monitor/component/camera.js"></script>
+<script src="app/js/monitor/component/list.js"></script>
+<script src="app/js/monitor/component/album.js"></script>
+<script src="app/js/monitor/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/snapshot.css" rel="stylesheet" />
+    <style>
+
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-snapshot-issue-write">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">上传记录</h1>
+    </header>
+    <div class="mui-content">
+        <!--拍照-->
+        <div class="photo_box edit">
+            <div class="img_box">
+                <img @click="takePhoto" alt="pic" :src="photo"/>
+            </div>
+            <div class="bottom">
+                <a><span class="mui-icon mui-icon-camera"></span>点击照片可重新拍摄</a>
+            </div>
+        </div>
+        <!--拍照-->
+
+        <!--表单-->
+        <form class="my_form">
+            <div class="my-input-row">
+                <div class="left">违章位置 :</div>
+                <div class="right">
+                    <input type="text" :value="form.address" class="unchange" readonly="readonly">
+                </div>
+            </div>
+
+            <div class="my-input-row">
+                <div class="left">违章类型 :</div>
+                <div class="right">
+                    <select v-model="form.vio_type_id" @change="typeChange" class="my_select">
+                        <option v-for="item in selectType" :value="item._id">{{item._name}}</option>
+                    </select>
+                    <input type="text" :value="selectText" readonly="readonly" />
+                </div>
+            </div>
+
+            <div class="my-input-row">
+                <div class="left">违章时间 :</div>
+                <div class="right">
+                    <input type="text" class="unchange" :value="form.upload_time" readonly="readonly" />
+                </div>
+            </div>
+
+            <div class="my-input-row">
+                <div class="left">发现人 :</div>
+                <div class="right">
+                    <input type="text" :value="form.upload_name" class="unchange" readonly="readonly" />
+                </div>
+            </div>
+
+            <div class="my-input-row">
+                <div class="left">抄送给 :</div>
+                <div class="right">
+                    <input type="text" @click="copyTo" placeholder="选择抄送人" readonly="readonly" />
+                </div>
+            </div>
+
+            <div class="my-input-row">
+                <div class="left text">违章详情 :</div>
+                <div class="right">
+                    <textarea placeholder="请填写违章详情" maxlength="150" v-model="form.vio_desc"></textarea>
+                </div>
+            </div>
+            <div class="mui-button-row">
+                <input type="submit" class="mui-btn mui-btn-primary submit" readonly="readonly" @click.prevent="submit" :value="subTip"/>
+            </div>
+        </form>
+        <!--表单-->
+    </div>
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/snapshot/issueWrite.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+/****************部门工种管理样式permission/department.vue*****************/
+.cl-transfer {
+  .el-input__inner {height: 30px;background-color: #E6E6E6;}
+  .el-input-group__append button.el-button {padding: 12px;}
+  .el-pagination {text-align: center;padding-top: 7px;}
+  .el-pager li {padding: 0 4px;min-width: 16px;background-color: #F3F3F4;}
+  .el-pagination .btn-next, .cl-transfer .el-pagination .btn-prev {background-color: #F3F3F4;}
+}
+
+/****************文档管理工作区样式file/workFolder.vue*****************/
+.cl-file-workFolder {
+  .el-pagination {
+    .btn-next, .cl-file-workFolder .el-pagination .btn-prev {background-color: #F3F3F4;}
+    .btn-next {border-radius: 0 20px 20px 0;}
+    .btn-prev {border-radius: 20px 0 0 20px;}
+  }
+  .el-pager li {background-color: #F3F3F4;}
+  .el-input {width: 140px;}
+  .el-button+.el-button {margin-left: 0;}
+  .el-button--small {padding: 9px 8px;}
+  .el-input-group__append button.el-button {padding: 12px;}
+}
+
+/****************流程管理管理样式permission/manage.vue*****************/
+.cl-manage {
+  .permissionSnapshot .dialog-content {position: relative!important;}
+  .el-input {width: 40%;max-width: 200px;position: absolute;right: 5%;top: 12px;}
+  .el-input__inner {height: 30px;background-color: #E6E6E6;}
+  .el-input{position: absolute;right: 45px;top: 12px;}
+  .el-input-group>.el-input__inner {  width: 100px;  background: white;}
+  .permissionSnapshot {
+    .el-dialog__footer {
+      padding-right: 60px;padding-bottom: 30px;
+      .el-button--primary {padding: 8px 50px;background-color: #1D84C6;margin-top:10px}
+      .el-button--default {padding: 8px 30px;background-color: #E6E6E6;color: #959798;}
+    }
+  }
+  .tranferLeft .el-pager li {min-width: 26px;}
+  .tree-box::-webkit-scrollbar,.el-main::-webkit-scrollbar{width: 6px;}
+  .tree-box::-webkit-scrollbar-thumb,.el-main::-webkit-scrollbar-thumb{background-color: #989898;}
+  .tree-box {padding: 10px;background-color: #FFFFFF;height: 320px;border-radius: 4px;overflow: auto;}
+  .el-tree-node .el-tree-node__content {background-color: #F3F3F4;border: 1px solid #E7EAEC;}
+}
+
+/****************后台管理功能配置adminManage/menuManage.vue*****************/
+.cl-menu-config .ibox-content {height: 315px;}
+
+/****************后台管理功能管理adminManage/menuEdit.vue*****************/
+.cl-adminManage-menuEdit .ibox-content {height:400px;overflow:auto;}
+
+/****************文件夹管理/folder.vue*****************/
+.cl-folder .file-Name {
+  cursor: pointer;
+  &:hover {color: #3B8CFF;}
+}
+
+.cl-menu-manage {
+  .el-tabs--border-card>.el-tabs__content {overflow: auto!important;height: 330px!important;}
+  .cl-menu-config .ibox-content {overflow: auto;background-color: #ffffff!important;border: 1px solid #D8DCE5;}
+}
+
+/**********ibox样式**********/
+.cl-ibox-dark {
+  .ibox-title {background: #f2f2f2;}
+  .ibox-content {background: #e6e6e6;}
+}

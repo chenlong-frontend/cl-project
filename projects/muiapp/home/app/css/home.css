@@ -1,0 +1,17 @@
+/************集团首页*********/
+.news_box {background-color: #FFFFFF;padding: 15px 30px;border-radius: 8px;position: relative;}
+.news_box .line {display: inline-block;width: 5px;position: absolute;left: 15px;top: 22px;height: 20px;background-color: #3598E6;}
+.news_box .title {font-weight: normal;line-height: 1.1em;font-size: 20px;}
+.news_box time {font-size: 12px;color: #DDDDDD;}
+.news_box img {width: 100%;height: auto;}
+.news_box .text {text-indent: 2em;}
+.news_list .mui-control-item {background: #C2E6FF;}
+.news_list .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{background: #FFFFFF;}
+.news_list .mui-slider .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-group .mui-slider-item {border: none;}
+.news_list .mui-control-content {padding: 10px 0;background: #FFFFFF;}
+.news_list .mui-table-view {list-style: disc;}
+.news_list .mui-table-view-cell {padding: 8px 15px;}
+.news_list .mui-table-view-cell:after {height: 0;}
+.news_list .mui-control-item:first-child {border-top-left-radius: 10px;}
+.news_list .mui-control-item:last-child {border-top-right-radius: 10px;}
+.news_list .mui-slider-indicator.mui-segmented-control {background: #EFEFF4;}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/home.css" rel="stylesheet" />
+    <style>
+        .news_box {background-color: #FFFFFF;padding: 15px 30px;border-radius: 8px;position: relative;}
+        .news_box .line {display: inline-block!important;width: 5px!important;position: absolute!important;left: 15px!important;top: 95px!important;height: 20px!important;background-color: #3598E6!important;}
+        .news_box .title {font-weight: normal!important;line-height: 1.1em!important;font-size: 20px!important;margin-top: 80px;}
+        .news_box time {font-size: 12px!important;color: #DDDDDD!important;}
+        .news_box img {width: 100%!important;height: auto!important;}
+        .news_box .text {text-indent: 2em!important;}
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-home-detail">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">新闻正文</h1>
+    </header>
+    <div class="news_box">
+        <span class="line"></span>
+        <h3 class="title">{{display.title}}</h3>
+        <time>{{display.time}}</time>
+        <p class="text">{{display.content}}</p>
+        <img v-for="item in display.img" :src="item">
+    </div>
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/home/detail.js"></script>
+</body>
+</html>

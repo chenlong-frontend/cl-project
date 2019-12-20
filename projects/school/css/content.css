@@ -1,0 +1,5 @@
+.main_right {min-height: 790px;}
+.main_right > .title {font-weight: bold;text-align: center;margin: 0;}
+.main_right > .info {padding: 12px 0;border-bottom: 2px dotted #e7e7e7;text-align: center;}
+.main_right > .info > span {display: inline-block;font-size: 12px;padding: 0 6px;color: #87838c;}
+

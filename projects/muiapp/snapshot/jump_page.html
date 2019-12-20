@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/snapshot.css" rel="stylesheet" />
+    <style>
+        .mui-content {text-align: center;}
+        .img {width: 160px;height: 160px;margin: 30px 0 40px 0;}
+        .result {font-size: 28px;color: #3899E8;font-weight: bolder;margin: 40px 0;line-height: 36px;}
+        .tip {color: #000000;padding: 0 20px;font-size: 18px;}
+        .bottom {width: 100%;position: absolute;bottom: 0;padding: 0 50px 40px 50px;}
+        .jump {background: #3899E8;width: 100%;max-width: 300px;height: 44px;border-radius: 6px;}
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-snapshot-jump-page">
+    <header class="mui-bar mui-bar-nav"></header>
+    <div class="mui-content">
+        <div class="mui-content">
+            <img class="img" :src="info.img"/>
+            <p class="result">{{info.result}}</p>
+            <p class="tip">{{info.tip}}</p>
+        </div>
+
+        <div class="bottom">
+            <button type="button" @click="jump" class="mui-btn mui-btn-primary jump">确定</button>
+        </div>
+    </div>
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/snapshot/jumpPage.js"></script>
+</body>
+</html>

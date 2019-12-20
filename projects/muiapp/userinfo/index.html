@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/userinfo.css" rel="stylesheet" />
+    <style>
+
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-userinfo-index">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">张成功</h1>
+        <a class="icon" :href="editHref"><img src="img/userinfo/edit.png" /></a>
+    </header>
+    <div class="mui-content">
+        <div class="head-img">
+            <img src="img/userinfo/person_icon.png" />
+        </div>
+        <ul class="list-box top">
+            <li>
+                <div class="left"><label>姓名</label></div>
+                <div class="right"><input disabled value="张成功" /></div>
+            </li>
+            <li>
+                <div class="left"><label>性别</label></div>
+                <div class="right"><input disabled value="男" /></div>
+            </li>
+            <li class="last-item">
+                <div class="left"><label>年龄</label></div>
+                <div class="right"><input disabled value="35" /></div>
+            </li>
+        </ul>
+        <ul class="list-box">
+            <li>
+                <div class="left"><label>项目工号</label></div>
+                <div class="right"><input disabled value="张成功" /></div>
+            </li>
+            <li>
+                <div class="left"><label>项目部门</label></div>
+                <div class="right"><input disabled value="男" /></div>
+            </li>
+            <li>
+                <div class="left"><label>项目职务</label></div>
+                <div class="right"><input disabled value="35" /></div>
+            </li>
+            <li>
+                <div class="left"><label>工种</label></div>
+                <div class="right"><input disabled value="张成功" /></div>
+            </li>
+            <li>
+                <div class="left"><label>手机</label></div>
+                <div class="right"><input disabled value="男" /></div>
+            </li>
+            <li>
+                <div class="left"><label>固定电话</label></div>
+                <div class="right"><input disabled value="35" /></div>
+            </li>
+            <li>
+                <div class="left"><label>邮箱</label></div>
+                <div class="right"><input disabled value="35" /></div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/userinfo/index.js"></script>
+</body>
+</html>

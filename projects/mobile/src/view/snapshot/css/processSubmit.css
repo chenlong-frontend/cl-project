@@ -1,0 +1,5 @@
+.photoBox {padding: 40px 50px 10px 50px;background-color: #DCE6EE;}
+.imgBox {width: 100%;position: relative;}
+.tips {width: 100%;height: 250px;background-color: #FFFFFF;display: table;border-radius: 10px;text-align: center;}
+.tips img {margin-top: 75px;width: 100px;}
+.imgBox > img {width: 100%;height: auto;border-radius: 10px;}

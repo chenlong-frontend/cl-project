@@ -1,0 +1,4 @@
+.myInputRow {width: 100%;margin: 7px 0;}
+.left {padding-top: 8px;width: 80px;float: left;color: #424242;font-size: 16px;text-align: right;}
+.right {padding: 7px 15px;margin-left: 87px;box-sizing: border-box;min-height: 35px;position: relative;background-color: #E2E2E2;border-radius: 6px;max-width: 250px;}
+.unRead {line-height: 21px;color: #7F7F7F;width: 100%;font-size: 14px;word-wrap: break-word;}

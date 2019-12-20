@@ -1,0 +1,11 @@
+.buttonBox {width: 100%; padding: 20px;background: #FFFFFF;box-sizing: border-box;}
+.button {width: 100%;display: table;}
+.button > div {display: table-cell;padding: 0 5px;}
+.left {width: 60%;}
+.right {width: 40%;}
+.buttonBox button {transition-duration: .2s;text-align: center;vertical-align: top;white-space: nowrap; transition: all;
+    line-height: 1.42;position: relative;display: inline-block;margin-bottom: 0;padding: 6px 12px;cursor: pointer;width: 100%;
+    height: 40px;border: none;color: #FFFFFF;font-weight: bold;font-size: 18px;border-radius: 6px;background: #848484;}
+.buttonBox button.primary {background: #3899E8;}
+
+.singleButton {padding: 0 30px;}

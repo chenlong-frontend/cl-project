@@ -1,0 +1,3 @@
+.box {height: 40px;white-space: nowrap;box-sizing: border-box;position: relative;overflow-x: auto;padding: 0 10px;}
+.box a {color: #929495;background: #CDCFD0;padding: 5px 10px;font-size: 12px;border-radius: 10px;margin: 0 2px;line-height: 40px;}
+.box .active {color: #FFFFFF;background: #2C8CC9;}

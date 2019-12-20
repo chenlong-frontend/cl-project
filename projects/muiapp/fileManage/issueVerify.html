@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/filemanage.css" rel="stylesheet" />
+    <style>
+        #wait-load{bottom: 0;}
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-file-manage-issue-verify">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">待审核</h1>
+    </header>
+    <div class="mui-content">
+        <div class="main_box">
+            <div class="main_title">
+                <div class="left">
+                    <img :src="fileData.file_icon" />
+                </div>
+                <div class="text">
+                    <span>{{fileData.file_name}}</span>
+                </div>
+                <a class="right">
+                    <img src="img/filemanage/read.png" />
+                    <p @click="preview(fileData.file_real_url)">预览文档</p>
+                </a>
+            </div>
+            <ul class="mui-table-view my_table">
+                <li class="mui-table-view-cell mui-collapse">
+                    <a class="mui-navigate-right">文档基本信息</a>
+                    <div class="mui-collapse-content">
+                        <div class="item">
+                            <div class="left">文档编号 : </div>
+                            <div class="right">{{fileData.doc_num}}</div>
+                        </div>
+                        <div class="item">
+                            <div class="left">文件名 : </div>
+                            <div class="right">{{fileData.file_name}}</div>
+                        </div>
+                        <div class="item">
+                            <div class="left">文件别名 : </div>
+                            <div class="right">{{fileData.file_alias}}</div>
+                        </div>
+                        <div class="item">
+                            <div class="left">上传人 : </div>
+                            <div class="right">{{fileData.file_emp_name}}</div>
+                        </div>
+                        <div class="item">
+                            <div class="left">上传时间 : </div>
+                            <div class="right">{{fileData.history_time}}</div>
+                        </div>
+                        <div class="item">
+                            <div class="left">文件位置 : </div>
+                            <div class="right">{{fileData.file_path}}</div>
+                        </div>
+                        <div class="item">
+                            <div class="left">文档描述 : </div>
+                            <div class="right">{{fileData.file_desc}}</div>
+                        </div>
+                        <div class="item">
+                            <div class="left">文件大小 : </div>
+                            <div class="right">{{fileData.file_size}}</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div v-show="fileData.asg_emp_name || fileData.file_tips" class="my_table process">
+                <div class="item">
+                    <div class="left">指定审核人 : </div>
+                    <div class="right">{{fileData.asg_emp_name}}</div>
+                </div>
+                <div class="item">
+                    <div class="left">备注 : </div>
+                    <div class="right">{{fileData.file_tips}}</div>
+                </div>
+            </div>
+            <div v-show="fileData.rvw_emp_name || fileData.rvw_advc" class="my_table process">
+                <div class="item">
+                    <div class="left">指定审核人 : </div>
+                    <div class="right">{{fileData.rvw_emp_name}}</div>
+                </div>
+                <div class="item">
+                    <div class="left">备注 : </div>
+                    <div class="right">{{fileData.rvw_advc}}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main_foot">
+            <h5 class="title">审批流程 :</h5>
+            <div class="process_pic">
+                <template v-for="(item,index) in process">
+                    <span class="circle" :class="item.color">{{item.text}}</span>
+                    <span class="line" v-if="index !== (process.length-1)">
+                            <div :class="item.color"></div>
+                    </span>
+                </template>
+            </div>
+            <div class="process_pic text">
+                <span class="circle"><span v-show="fileData.file_emp_name">上传人 : {{fileData.file_emp_name}}</span></span>
+                <span class="line">
+		    			<div></div>
+		    		</span>
+                <span class="circle"  v-show="fileData.asg_emp_name">审核人 : {{fileData.asg_emp_name}}</span>
+                <span class="line">
+		    			<div></div>
+		    		</span>
+                <span class="circle" v-show="fileData.rvw_emp_name">批准人 : {{fileData.rvw_emp_name}}</span>
+            </div>
+        </div>
+        <!--还需带上重传状态参数判断-->
+        <div class="my_tips" v-show="flag.readOnly">
+          <div class="box">
+            <div class="img">
+                <img src="img/filemanage/warning.png" />
+            </div>
+            <p>手机不支持重传，请移步PC端重新上传</p>
+          </div>
+        </div>
+    </div>
+    <div class="bottom_btn" v-if="!flag.readOnly">
+        <div class="left">
+            <button @click="flag.modal=true;flag.type=0" class="btn_submit">审批</button>
+        </div>
+        <div class="right">
+            <button @click="flag.modal=true;flag.type=1" class="btn_submit">拒绝</button>
+        </div>
+    </div>
+
+    <div v-show="flag.modal" class="my-mask" @click="flag.modal=false"></div>
+    <div v-show="flag.modal" class="modal" data-modal="bth_submit">
+        <div class="box">
+            <div class="modal_title">审批</div>
+            <div class="modal_content">
+                <!--表单-->
+                <form class="my_form">
+                    <div class="my_input">
+                        <div class="left">意见 :</div>
+                        <div class="right">
+                            <textarea v-model="form.advise"></textarea>
+                        </div>
+                    </div>
+                    <div class="my_button">
+                        <button type="button" @click="submit" class="submit">汇报进度</button>
+                    </div>
+                </form>
+                <!--表单-->
+            </div>
+        </div>
+    </div>
+    <!--弹出窗-->
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/fileManage/issueVerify.js"></script>
+</body>
+</html>

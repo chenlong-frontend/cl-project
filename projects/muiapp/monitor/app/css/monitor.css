@@ -1,0 +1,73 @@
+ul {list-style: none;padding: 0;margin: 0;}
+.mui-bar-nav~.mui-content {padding: 130px 0 60px 0;}
+/**********摄像头信息***********/
+.folder {position: fixed;top: 60px;width: 100%;z-index: 999;}
+.top {padding: 10px 15px 8px 15px;width: 100%;background-color: #FFFFFF;height: 70px;overflow: auto;}
+.top .img {width: 60px;position: absolute;}
+.top .img img{width: 50px;height: 50px;}
+.top .text {width: 100%;padding: 0 60px;margin-top: 5px;overflow: hidden;}
+.top .text > .department{color: #000000;margin: 0;}
+.top .text > .address{font-size: 12px;margin-bottom: 2px;}
+.top .right {width: 90px;position: absolute;top: 18px;right: 10px;}
+.top .right > h3 {color: #449FE9;text-align: right;}
+
+/*********左右滚动选项卡**************/
+.tap_slider {height: 110px;width: 100%;background-color: #FFFFFF;padding: 0;position: relative;}
+.tap_slider .tab_ctrl {position: absolute;height: 100%;padding: 42px 5px;width: 35px;}
+.tap_slider .left {left: 0;border-right: 2px solid #EFEFEF;}
+.tap_slider .right {right: 0;border-left: 2px solid #EFEFEF;}
+.tap_slider .my_slider {padding: 0 35px;}
+.tap_slider .mui-slider-item {position: relative;padding: 10px;}
+.tap_slider .img {position: absolute;width: 40px;top: 15px;}
+.tap_slider .setting {position: absolute;right: 5px;bottom: 12px;color: #3899E8;border: 1px solid #3899E8;padding: 0 7px;border-radius: 1px;}
+.tap_slider .setting.selected{background: #3899E8;color: #FFFFFF;}
+.tap_slider .status {position: absolute;right: 5px;top: 10px;font-size: 12px;color: #8f8f94;}
+.tap_slider .status span {color: #34D661;}
+.tap_slider .status .danger {color: #E54848;}
+.tap_slider .info {margin: 0 50px;}
+.tap_slider h4 {font-weight: normal;}
+.tap_slider p {margin: 0;font-size: 12px;}
+
+/******首页*****/
+#wait-load{top:131px;bottom: 0;}
+.list {padding: 15px 25px;}
+.list .item {position: relative;background-color: #FFFFFF;margin: 15px 0;border-radius: 10px;padding: 20px 15px 20px 20px;}
+.list .item .box {background: url(../../img/monitor/svg/index_bg.svg) right 10px no-repeat;position: absolute;bottom: -3px;right: 15px;width: 102px;height: 96px;}
+.list .item .setting {position: absolute;right: 16px;top: 12px;font-size: 12px;color: #3899E8;border: 1px solid #3899E8;border-radius: 3px;padding: 0 7px;}
+.list .item .setting.selected {color: #FFFFFF;background-color: #3899E8;}
+.list .item p {margin: 0;}
+.list .status.primary {color: #34D661;}
+.list .status.danger {color: #E54848;}
+
+/******监控列表*****/
+.camera-list .head{position: absolute;top:0;width: 100%;padding:8px 15px;background-color:#E0E0E0;}
+.camera-list .head a{font-size:12px;color:#7F7F7F;}
+.camera-list .head .active{color:#424242;}
+.camera-list .fixed_box{background: #FFFFFF;top:166px;}
+.camera-list .center{display: table;background-color: #FFFFFF;width:100%;padding-left:18px;}
+.camera-list .center .left{display:table-cell;width: 50px;vertical-align: middle;}
+.camera-list .center .left .img{width: 25px;}
+.camera-list .center .middle .text {line-height: 3em;font-size: 16px;margin: 0;color:#000000;}
+.camera-list .center .middle{display:table-cell;width: 200px;vertical-align: middle;padding-top:6px;padding-left:5px;border-bottom:1px solid #E0E0E0;}
+.camera-list .center .middle .area{margin-bottom:0;padding-top:8px;color:#000000;font-size:14px;}
+.camera-list .center .middle .number{margin-top:0;font-size:12px;}
+.camera-list .center .middle .state_normal{color:#34D661;font-size:14px;}
+.camera-list .center .middle .state_abnormal{color:#E54848;font-size:14px;}
+.camera-list .center .middle.list-folder{padding: 0 8px;}
+.camera-list .center .right{display:table-cell;vertical-align: middle;width:100px;border-bottom:1px solid #E0E0E0;text-align:right;}
+.camera-list .center .right i{font-size:12px;}
+.camera-list .center .right a{font-size:12px;color:#3899E8;border:1px solid #3899E8;border-radius:4px;display: inline-block;padding: 0 8px;}
+.camera-list .center .right .selected {background-color: #3899E8;color: #FFFFFF;}
+.camera-list .center .space{display: table-cell;vertical-align: middle;width:20px}
+.camera-list .center .remove_bottom_border{border-bottom-width:0;}
+
+/******相册列表*****/
+.album {margin: 20px 0;padding: 5px 15px 30px 15px;background-color: #FFFFFF;}
+.album ul:after {content: '.';display: block;width: 0;height: 0;line-height: 9;overflow: hidden;clear: both;visibility: hidden;}
+.album ul li:nth-child(3n+1){padding-right: 2px;}
+.album ul li:nth-child(3n+2){padding: 0 1px;}
+.album ul li:nth-child(3n+3){padding-left: 2px;}
+.album li {width: 33.33%;float: left;}
+.album li img {width: 100%;height: auto;}
+.album h5 {padding: 5px 0;color: #424242;}
+

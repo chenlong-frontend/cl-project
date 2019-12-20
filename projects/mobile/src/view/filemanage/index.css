@@ -1,0 +1,128 @@
+.fileGrey{
+    width:22px;
+    height:22px;
+    background: url('../../assets/svg/change_fail.svg') no-repeat center center;
+}
+.fileIcon{
+    width:22px;
+    height:22px;
+    background: url('../../assets/svg/change_up.svg') no-repeat center center;
+}
+.workGrey{
+    width:22px;
+    height:22px;
+    background: url('../../assets/svg/state_deal.svg') no-repeat center center;
+}
+.workIcon{
+    width:22px;
+    height:22px;
+    background: url('../../assets/svg/state_process.svg') no-repeat center center;
+}
+.qrcodeGrey{
+    width:22px;
+    height:22px;
+    background: url('../../assets/svg/help.svg') no-repeat center center;
+}
+.qrcodeIcon{
+    width:22px;
+    height:22px;
+    background: url('../../assets/svg/state_fail.svg') no-repeat center center;
+}
+.footer{
+    width:100%;
+    height:60px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom:0px;
+}
+.scanFile{
+    height: 542px;
+    background-color: #fff;
+    padding: 8px 16px;
+    position: absolute;
+    top:100px;
+    left:0px;
+    right:0px;
+    bottom:45px;
+}
+.fileBox1{
+    width:100%;
+    height:115px;
+    padding:20px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+.item{
+    width:33%;
+    height:80px;
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.item img{
+    width:24px;
+    height:24px;
+}
+.item p{
+    margin-top: 3px;
+}
+.tabItem{
+    height:570px;
+    background-color: #fff;
+}
+.fileItem{
+    height:620px;
+    background-color: #fff;
+    position: absolute;
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:45px;
+}
+.toolBar {
+    width:170px;
+    margin: 0 auto;
+    height:34px;
+    line-height: 34px;
+    text-align: center;
+    background-color: #DBDBDB;
+    color:#000;
+    border-radius: 20px;
+    position: relative;
+}
+.toolBar img{
+    width:24px;
+    height:24px;
+    display: inline-block;
+    position: absolute;
+    top:6px;
+    left:22px;
+}
+.toolBar .clearData{
+    display: inline-block;
+    position: absolute;
+    top:-13px;
+    left:58px;
+}
+.fileBox{
+    height:480px;
+    overflow: auto;
+}
+.fileBox::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 4px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 4px;
+}
+.fileBox::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.2);
+}
+.fileBox::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 0;
+    background: rgba(0,0,0,0.1);
+}
+

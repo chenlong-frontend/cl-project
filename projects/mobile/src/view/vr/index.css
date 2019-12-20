@@ -1,0 +1,288 @@
+.article{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url(../../assets/img/vr/whole_bg.png) no-repeat;
+    background-size: 100% 100%;
+}
+.header{
+    width: 100%;
+    height: 40px;
+    position: relative;
+    background-image: url(../../assets/img/vr/1_header.png);
+    background-size: 100% 100%;
+}
+.header>.header_img{
+    position: absolute;
+    top: 8px;
+    text-align: center;
+    width: 16%;
+}
+
+.header>.header_img>img{
+    width: 100%;
+}
+
+.btn_voice{
+    left: 4%;
+}
+.btn_close{
+    right: 4%;
+}
+
+.header_title{
+    width: 100%;
+    height: 70px;
+    font-size:20px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    padding-top: 12px;
+}
+
+/*====================
+    扫一扫
+======================*/
+.section{/*
+    margin-top: 20px;*/
+    width: 100%;
+    height: 41%;
+    color: white;
+}
+.section>div{
+    height: 100%;
+}
+.timedate{
+    position: relative;
+    color: white;
+}
+.scan_box>img, .timedate>img{
+    width: 100%;
+    position: absolute;
+}
+.timedate span{
+    position: absolute;
+    color: white;
+    display: inline-block;
+    font-size: 18px;
+}
+.timedate>span:nth-child(2){
+    left: 25%;
+    top: 28%;
+}
+.timedate>span:nth-child(3){
+    width: 100%;
+    text-align: center;
+    font-size: 38px;
+    top: 40%;
+}
+
+.timedate>span:nth-child(4){
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    top: 62%;
+}
+
+.timedate>div{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 76%;
+}
+.timedate>div>img{
+    width: 40%;
+}
+
+.scan_box .scan_small{
+    display: inline-block;
+    position: absolute;
+    right: 8%;
+    top: 10%;
+    z-index: 2;
+}
+.scan_box .scan_small>img{
+    width: 60px;
+}
+/*=================
+    体检记录
+===================*/
+.footer{
+    width: 100%;
+    height: 45%;/*
+    border: 1px solid white;*/
+    margin-top: 15px;
+    background-image: url(../../assets/img/vr/1_footer.png);
+    background-size: 100% 100%;
+    position: relative;
+    margin-top: 35px;
+}
+
+.firstBox{
+    margin-top: 10%;
+    position: relative;
+    top: 10%;
+}
+
+.experience_box{
+    position: relative;
+    width: 80%;
+    height: 20%;
+    margin-left: 10%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    color: white;
+    font-size: 18px;
+}
+
+.first_exp{
+    margin-top: 10%;
+}
+
+.experience_box img{
+    width: 100%;
+    height: 100%;
+}
+
+.experience_box>div{
+    display: inline-block;
+    position: absolute;
+    left: 0px;
+}
+
+.experience_box .first_line{
+    width: 100%;
+    top: 2%;
+    font-size: 16px;
+}
+
+.experience_box .second_line{
+    width: 100%;
+    top: 45%;
+}
+
+.experience_box .first_line span,.second_line span{
+    font-size: 16px;
+}
+.experience_box .first_line>span{
+    position: absolute;
+    left: 8%;
+}
+
+.experience_box .first_line>div{
+    position: absolute;
+    right: 8%;
+}
+
+.experience_box .second_line>div{
+    position: absolute;
+    width: 100%;
+    left: 8%;
+}
+
+
+.experience_box .second_line>span{
+    position: absolute;
+    right: 8%;
+    color: orange;
+}
+
+.experience_box .second_line .has_resp{
+    color: lightgreen;
+}
+/*-------------------
+    热区
+---------------------*/
+.footer>span{
+    display: inline-block;
+    /*border:1px solid red;*/
+}
+.show_more1{
+    width: 20%;
+    height: 8%;
+    position: absolute;
+    top: 2%;
+    right: 4%;
+}
+.show_more2{
+    width: 30%;
+    height: 10%;
+    position: absolute;
+    bottom: 0;
+    left: 35%;
+}
+
+.no_data{
+    color: white;
+    width: 80%;
+    margin-left: 10%;
+    height: 60%;
+    position: relative;
+    top: 15%;
+}
+
+.no_data img{
+    width: 100%;
+}
+
+/*蒙版*/
+.showlog{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+
+.log_bg{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0.3;
+}
+
+.logmsg{
+    width: 70%;
+    height: 16%;
+    background-color: white;
+    position: absolute;
+    top: 30%;
+    left: 15%;
+    border-radius: 6px;
+}
+
+.msgerror{
+    width: 100%;
+    height: 60%;
+    color: #3899e9;
+    text-align: center;
+    font-size: 16px;
+    line-height: 400%;
+}
+
+.logmsg_hr{
+    width: 100%;
+    height: 1px;
+    background-color: gray;
+}
+
+.lohmsg_comfirm
+{
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+}
+
+.lohmsg_comfirm span{
+    text-align: center;
+    display: inline-block;
+    background-color: #3899e9;
+    font-size: 20px;
+    margin-top: 2%;
+    color: white;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 4px;
+}

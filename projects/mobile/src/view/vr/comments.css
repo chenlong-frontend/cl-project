@@ -1,0 +1,86 @@
+
+.article{
+    width: 100%;
+    height: 100%;
+    background: url(../../assets/img/vr/whole_bg.png) no-repeat;
+    background-size: 100% 100%;
+    position: fixed;
+}
+
+.section{
+    margin: auto;
+    top: 5%;
+    width: 95%;
+    height: 75%;
+    background: url(../../assets/img/vr/3_bg.png) no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+
+.ques{
+    width: 80%;
+    height: 50%;
+    margin-left: 10%;
+    color: white;
+    padding-top: 15%;
+    font-size: 0.5rem;
+}
+.ques textarea{
+    width: 100%;
+    height: 110%;
+    resize: none;
+    border: none;
+    background-color: transparent;
+    color: white;
+    text-indent: 30px;
+}
+
+.comments{
+    width: 76%;
+    height: 8%;
+    margin-left: 12%;
+    color: white;
+    position: absolute;
+    top: 85%;
+    font-size: 0.5rem;
+}
+.comments img{
+    margin-top: 2%;
+    width: 15%;
+    margin-right: 2%;
+}
+
+
+::-webkit-input-placeholder{
+    color: white;
+}
+
+.footer{
+    width: 100%;
+    height: 20%;
+}
+
+.footer div.writecomm{
+    display: inline-block;
+    width: 35%;
+    margin-top: 10%;
+    margin-left: 10%;
+    position: relative;
+    top: 10%;
+}
+
+.footer div.writecomm>img{
+    width: 100%;
+}
+
+.footer div.readcomm{
+    display: inline-block;
+    width: 40%;
+    margin-top: 10%;
+    margin-left: 30%;
+    position: relative;
+    top: 10%;
+}
+.footer div.readcomm>img{
+    width: 100%;
+}

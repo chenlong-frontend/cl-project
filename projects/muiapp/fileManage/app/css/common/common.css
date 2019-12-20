@@ -1,0 +1,61 @@
+/*********统一样式***********/
+ul {list-style: none;padding: 0;margin: 0;}
+
+/*********顶部导航*********/
+.mui-bar-nav {background: #3899E8;height: 60px;padding: 10px;}
+.mui-bar-nav > .mui-icon-left-nav {color: #FFFFFF;}
+.mui-bar-nav > .mui-title {color: #FFFFFF;text-align: left;font-size: 20px;width: 180px;}
+.mui-bar-nav > .icon{float: right;display: inline-block;margin-right: 10px;margin-top: 10px;}
+.mui-bar-nav > .icon >img {width: 20px;height: 20px;}
+
+/***********等待加载样式*************/
+#wait-load {position: fixed;top: 60px;left: 0;right: 0;bottom: 0;background: #FFFFFF;z-index: 9999;text-align: center;}
+#wait-load img {width: 40px;height: 40px;margin-top: 30px;}
+
+/***********内容位置*************/
+.mui-bar-nav~.mui-content {padding-top: 60px;}
+
+/**************自定义蒙层*************/
+.my-mask {position: fixed;right: 0;top: 0;left: 0;bottom: 0;z-index: 998;background: #000000;opacity: 0.4;}
+
+/**************数据加载弹出层*************/
+.wait-data {position: fixed;right: 0;top: 60px;left: 0;bottom: 0;z-index: 1999;}
+.wait-data .box {position: absolute;height: 75px;top: 50%;margin-top: -80px;width: 100%;}
+.wait-data .box .wait-tips {text-align: center;width:125px;border-radius: 8px;height: 75px;margin: 0 auto;padding-top: 30px;background: #000000;opacity: 0.4;}
+.wait-data .box span {color: #FFFFFF;font-size: 12px;vertical-align: top;}
+.wait-data .box img {width: 20px;height: 20px;}
+
+/**********底部提交按钮*********/
+.my_bottom_bth {position: fixed;bottom: 0;width: 100%;z-index: 999;background: #FFFFFF;height: 80px;padding: 20px;}
+.my_bottom_bth > div {width: 100%;display: table;}
+.my_bottom_bth .button.model_1 > div {display: table-cell;padding: 0 5px;}
+.my_bottom_bth .button.model_1 .left {width: 60%;}
+.my_bottom_bth .button.model_1 .right {width: 40%;}
+.my_bottom_bth .button.model_1 button {width: 100%;height: 40px;border: none;color: #FFFFFF;font-weight: bold;font-size: 18px;border-radius: 6px;}
+.my_bottom_bth .button.model_1 .left > button {background-color: #3899E8;}
+.my_bottom_bth .button.model_1 .right > button {background-color: #848484;}
+.my_bottom_bth .button.model_2 {padding: 0 30px;}
+.my_bottom_bth .button.model_2 > button {width: 100%;height: 40px;font-size: 18px;font-weight: bold;color: #FFFFFF;background-color: #3899E8;border: none;border-radius: 6px;}
+
+/*********底部选项卡*********/
+.bottom_tab {height: 60px;background: #FFFFFF;width: 100%;position: fixed;bottom: 0;display: table;border-top: 2px solid #EFEFEF;}
+.bottom_tab .my_active .label{color: #424242;}
+.bottom_tab .item {height: 50px;padding-top: 10px;display: table-cell;width: 25%;text-align: center;}
+.bottom_tab img {height: 20px;width: 20px;}
+.bottom_tab .label {font-size: 12px;margin: 0;color: #CACACA;}
+
+/********注意提示栏********/
+.my_tips {width: 100%;}
+.my_tips .box {background-color: #DBDBDB;display: table;border-radius: 15px;padding: 3px 20px;max-width: 300px;margin: 0 auto;}
+.my_tips .box .img {display: table-cell;vertical-align: middle;font-size: 16px;width: 20px;}
+.my_tips .box .img img {width: 20px;height: 17px;}
+.my_tips .box > p {display: table-cell;font-size: 12px;margin: 0;line-height: 14px;color: #424242;vertical-align: middle;padding-left: 8px;}
+
+/***********底部提示框********/
+.c-modal-bottom {position: fixed;z-index: 1000;width: 100%;bottom: 0;height: 180px;background-color: #F5F5F5;}
+.c-modal-bottom .title {text-align: center;color: #494949;font-size: 15px;font-weight: 600;padding: 10px 0;border-bottom: 1px solid #EDEDED;}
+.c-modal-bottom .content {display: table;width: 100%;}
+.c-modal-bottom .content > div {display: table-cell;text-align: center;padding: 16px 0;}
+.c-modal-bottom .content > div p {margin: 0;font-size: 12px;}
+.c-modal-bottom .content img {height: 32px;}
+.c-modal-bottom .foot {position: absolute;padding: 10px;font-size: 16px;;color: #373737;bottom: 0;width: 100%;text-align: center;border-top: 1px solid #EDEDED;}

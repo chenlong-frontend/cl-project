@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/snapshot.css" rel="stylesheet" />
+    <style>
+        .mui-bar-nav~.mui-content {background: #FFFFFF;}
+        .my_form {padding-top: 10px;padding-bottom: 0px;}
+        .my_tips {margin: 20px 0 0 0;}
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-snapshot-issue-verify">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">违章记录查看</h1>
+    </header>
+    <div class="mui-content" :style="{paddingBottom:paddingBottom}">
+        <div class="photo_box read">
+            <p>违章记录照片 : </p>
+            <div class="img_box">
+                <img class="photoInfo" :src="photo" alt="pic" />
+            </div>
+        </div>
+
+        <!--提示信息-->
+        <div class="my_tips" v-show="flag.tip">
+            <div class="box">
+                <div class="img">
+                    <img src="img/svg/tip.svg" />
+                </div>
+                <p>可修改记录后审核</p>
+            </div>
+        </div>
+        <!--提示信息-->
+
+        <!--表单-->
+        <form class="my_form">
+            <div class="my-input-row">
+                <div class="left">违章位置 :</div>
+                <div class="right">
+                    <input type="text" :value="form.address" class="unchange" readonly="readonly">
+                </div>
+            </div>
+
+            <div class="my-input-row">
+                <div class="left">违章类型 :</div>
+                <div class="right">
+                    <select v-model="form.vio_type_id" @change="typeChange" :disabled="onlyRead" class="my_select">
+                        <option v-for="item in selectType" :value="item._id">{{item._name}}</option>
+                    </select>
+                    <input type="text" :value="selectText" :class="{unchange:onlyRead}" readonly="readonly" />
+                </div>
+            </div>
+
+            <div class="my-input-row">
+                <div class="left">违章时间 :</div>
+                <div class="right">
+                    <input type="text" class="unchange" :value="form.upload_time" readonly="readonly" />
+                </div>
+            </div>
+
+            <div class="my-input-row">
+                <div class="left">发现人 :</div>
+                <div class="right">
+                    <input type="text" :value="form.upload_name" class="unchange" readonly="readonly" />
+                </div>
+            </div>
+
+            <div class="my-input-row">
+                <div class="left">抄送给 :</div>
+                <div class="right">
+                    <input type="text" @click="copyTo" :class="{unchange:onlyRead}" value="选择抄送人" readonly="readonly" />
+                </div>
+            </div>
+
+            <div class="my-input-row">
+                <div class="left text">违章详情 :</div>
+                <div class="right">
+                    <textarea placeholder="请填写违章详情" :class="{unchange:onlyRead}" :readonly="onlyRead" maxlength="150" v-model="form.vio_desc"></textarea>
+                </div>
+            </div>
+
+            <div v-show="flag.fail" class="my-input-row">
+                <div class="left">驳回原因 :</div>
+                <div class="right">
+                    <input type="text" :value="fail.fail_reason" class="unchange" readonly="readonly">
+                </div>
+            </div>
+
+            <div v-show="flag.fail" class="my-input-row">
+                <div class="left text">审核意见 :</div>
+                <div class="right">
+                    <textarea :value="fail.verify_advise" class="unchange" readonly="readonly"></textarea>
+                </div>
+            </div>
+        </form>
+        <!--表单-->
+    </div>
+    <!--底部提交-->
+    <div v-show="flag.submit" class="my_bottom_bth">
+        <div class="button model_1">
+            <div class="left"><button class="pass" @click="confirm">{{text.confirm}}</button></div>
+            <div class="right"><button class="fail" @click="reject">{{text.reject}}</button></div>
+        </div>
+    </div>
+    <div class="my_bottom_progress" :style="{bottom:progressBottom}">
+        <div class="progress">
+            <div class="left">
+                <template v-for="n in 4">
+                    <a :class="{active:n===proActive}">{{progress[n-1]}}</a>
+                    <span v-if="n<4"></span>
+                </template>
+            </div>
+            <div class="right">
+                <div class="time">
+                    <p>变更时间</p>
+                    <p class="change_time">{{historyTime}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--底部提交-->
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/snapshot/issueVerify.js"></script>
+</body>
+</html>

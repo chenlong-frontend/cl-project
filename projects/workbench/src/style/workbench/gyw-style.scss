@@ -1,0 +1,28 @@
+/****************集团人员/staff/department.vue*****************/
+.gyw-staff-department {
+  .ibox > .ibox-content {background:#FAFAFA}
+  .el-tabs--border-card { background:#FAFAFA}
+  .el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active { background:#FAFAFA}
+  .el-tabs__content{position:static;}
+  .el-input__inner{height:25px;}
+}
+
+/****************通讯录样式contract/staffContract.vue*****************/
+.gyw-contractStaffContract {
+  .box:after{content: '.';clear: both;width: 0;height: 0;line-height: 9;visibility: hidden;overflow: hidden;display: block;}
+  table {position: relative;background: grey}
+}
+
+.gyw-contractStaffContract {
+  .contractright{border-radius:15px}
+  .structureDescription{text-align: left;width:90%;height:41px;line-height:41px;background: #dbdbdb;margin-left: 5%;border-radius:5px;font-size: 14px;text-indent:10px;}
+  .contractleft{border-radius:15px;height: 500px;overflow: auto}
+  .el-pager{background: #dbdbdb}
+}
+
+.gyw-staff-department {
+  .el-pagination {
+    li{background-color: #FAFAFA}
+    button{background-color: #FAFAFA}
+  }
+}

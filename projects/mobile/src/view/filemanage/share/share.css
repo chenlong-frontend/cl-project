@@ -1,0 +1,67 @@
+.head{
+    position: fixed;
+    top:0px;
+    left:0px;
+    right:0px;
+}
+.content{
+    position: fixed;
+    top:45px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+}
+.warn {
+    width:270px;
+    height:34px;
+    line-height: 34px;
+    text-align: center;
+    background-color: #DBDBDB;
+    color:#000;
+    margin: 12px auto;
+    border-radius: 20px;
+    position: relative;
+}
+.warn img{
+    width:24px;
+    height:24px;
+    display: inline-block;
+    position: absolute;
+    top:4px;
+    left:22px;
+}
+.warn p{
+    display: inline-block;
+    position: absolute;
+    top:-13px;
+    left:58px;
+}
+.footer{
+    width:100%;
+    text-align: center;
+    height:40px;
+    line-height: 40px;
+    background-color: #EFEFEF;
+    color: #AAAAAD;
+    position: fixed;
+    bottom:0px;
+}
+.fileBox{
+    height:552px;
+    overflow: auto;
+    background-color: #fff;
+}
+.fileBox::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 4px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 4px;
+}
+.fileBox::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.2);
+}
+.fileBox::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 0;
+    background: rgba(0,0,0,0.1);
+}

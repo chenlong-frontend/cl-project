@@ -1,0 +1,9 @@
+.progress {width: 100%;background: #EFEFEF;height: 48px;display: table;}
+.left {display: table-cell;width: auto;vertical-align: middle;padding-left: 5px;}
+.left > * {float: left;}
+.left > a {color: #A3A3A3;font-size: 12px;background: #DBDBDB;padding: 5px 0;
+    border-radius: 10px;width: 20%;  display: inline-block;text-align: center;}
+.left > a.active {background-color: #3899E8;color: #FFFFFF;}
+.left > span {display: inline-block;width: 6%;height: 5px;background: #DBDBDB;margin-top: 8px;}
+.right {display: table-cell;width: 120px;vertical-align: middle;background-color: #E4E4E4;padding-left: 10px;}
+.time p{margin: 0;font-size: 12px;line-height: 16px;color: #8f8f94;}

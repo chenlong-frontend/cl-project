@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/font-awesome.min.css" rel="stylesheet" />
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/statistics.css" rel="stylesheet" />
+    <style>
+        body {font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;font-size: 13px;color: #676a6c;overflow-x: hidden;}
+        .mui-bar-nav~.mui-content {padding: 60px 20px;}
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-statistics-index">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">项目看板</h1>
+    </header>
+    <div class="mui-content">
+        <div class="row" id="vuePannelShow">
+            <div class="col-sm-3">
+                <div class="widget style1 navy-bg">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <i class="fa fa-camera fa-5x"></i>
+                        </div>
+                        <div class="col-xs-8 text-right" @click="snapshotRecord()">
+                            <span> 随手拍处理率<small>本月</small> </span>
+                            <h2 class="font-bold" v-cloak>{{snapShot}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="widget style1 lazur-bg">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <i class="fa fa-folder-open-o fa-5x"></i>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <span> 项目文档总数</span>
+                            <h2 class="font-bold" v-cloak>{{project}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="widget style1 yellow-bg">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <i class="fa fa-youtube-play fa-5x"></i>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <span> 项目摄像头总数 </span>
+                            <h2 class="font-bold" v-cloak>{{camera}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="widget navy-bg no-padding" style="background-color: #1bb394;">
+                    <div class="p-m">
+                        <h3><span style="font-size: 20px" class="fa fa-users"></span> 项目总人数</h3>
+                        <h1 class="m-xs">暂无数据</h1>
+
+                        <div class="ibox-content" style="background: none;border: none;">
+                            <h5>今日出勤人数（暂无数据）</h5>
+                            <div class="progress  progress-striped" style="border: #fff 1px solid;">
+                                <div style="width: 0%;background-color: #1cb394;" aria-valuemax="100" aria-valuemin="0" aria-valuenow="100" role="progressbar" class="progress-bar progress-bar-success">
+                                    <span class="sr-only">35% Complete (success)</span>
+                                </div>
+                            </div>
+
+                            <h5>工地在场人数（暂无数据）</h5>
+
+                            <div class="progress  progress-striped">
+                                <div style="width: 0%;border: 1px #fff solid;" aria-valuemax="100" aria-valuemin="0" aria-valuenow="50" role="progressbar" class="progress-bar progress-bar-warning">
+                                    <span class="sr-only">40% Complete (success)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/statistics/index.js"></script>
+</body>
+</html>

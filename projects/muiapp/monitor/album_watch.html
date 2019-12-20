@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/monitor.css" rel="stylesheet" />
+    <style>
+        .mui-bar-nav~.mui-content {padding: 60px 0 60px 0;}
+        #wait-load{top:60px;bottom: 0;}
+
+        .ctrl_bar {font-size: 12px;}
+        .ctrl_bar span {display: inline-block;padding: 8px 20px;}
+        .ctrl_bar .next {float: right;}
+
+        .photo_box {background: #FFFFFF;padding: 15px;width: 100%;position: relative;}
+        .photo_box img {width: 100%;border-radius: 1px;}
+        .photo_box .mask {position: absolute;background-color: #000000;opacity: 0.4;bottom: 20px;right: 15px;width: 50px;height: 50px;border-top-left-radius: 20px;}
+        .photo_box .enlarge {position: absolute;color: #FFFFFF;bottom: 28px;right: 22px;font-size: 36px;}
+
+        .inform {background: #FFFFFF;padding: 25px 20px;margin-top: 20px;position: relative;}
+        .inform .left {display: inline-block;}
+        .inform .left h4 {font-weight: normal;margin-bottom: 4px;font-size: 16px;}
+        .inform .left p {margin: 0;font-size: 12px;}
+        .inform .right {float: right;text-align: center;}
+        .inform .right img{width: 50px;}
+        .inform .line {display: inline-block;padding: 30px 1px;background-color: #EFEFEF;position: absolute;right: 130px;top: 30px;}
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-monitor-album-watch">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">视频监控</h1>
+    </header>
+    <div class="mui-content">
+        <!--上下页-->
+        <div class="ctrl_bar">
+            <span class="last" @click="lastPic(photoData)"><上一张</span>
+            <span class="next" @click="nextPic(photoData)">下一张></span>
+        </div>
+        <!--上下页-->
+
+        <ul class="photo_box">
+            <li><img :src="photoData.org_pic" alt="加载中"></li>
+        </ul>
+
+        <div class="inform">
+            <div class="left">
+                <h4>截屏来源 : {{photoData.unit_type}}</h4>
+                <p>位置 : {{photoData.position}}</p>
+                <p>截屏时间 : {{photoData.time}}</p>
+            </div>
+            <span class="line"></span>
+            <div class="right">
+                <img id="img2" src="img/monitor/svg/down_load.svg" />
+                <p>保存到手机</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/monitor/albumWatch.js"></script>
+</body>
+</html>

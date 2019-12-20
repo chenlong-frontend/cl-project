@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/snapshot.css" rel="stylesheet" />
+    <style>
+        .take_photo {background-color: #DCE6EE;width: 100%;padding: 10px 20px;}
+        .location .info > span{font-size: 16px;color: #868787;}
+        .location .info .mui-icon-location {color: #3899E8;}
+        .location > .time {color: #868787;font-size: 14px;padding: 4px;}
+        .photo_box {padding: 20px 0;}
+        .circle_box {background-color: #3899E8;padding: 18px 0;width: 150px;height: 150px;border-radius: 75px;text-align: center;margin: 0 auto;border: 6px solid #8ABFEB;}
+        .circle_box > span {display: block;font-size: 16px;color: #FFFFFF;}
+        .circle_box > .mui-icon-camera {font-size: 75px;}
+        .my_tips {padding: 15px 0 30px 0;}
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-snapshot-index">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">随手拍</h1>
+    </header>
+    <div class="mui-content">
+        <!--用户信息-->
+        <div class="top">
+            <div class="top_left">
+                <div class="head_pic">
+                    <img :src="userInfo.avatar" />
+                </div>
+                <div class="info">
+                    <p class="name">{{userInfo.name}}</p>
+                    <p class="job">{{userInfo.dep_name}}</p>
+                </div>
+            </div>
+            <div class="top_right">
+                <h3 class="position">{{userInfo.emp_post}}</h3>
+            </div>
+        </div>
+        <!--用户信息-->
+        <!--拍照-->
+        <div class="take_photo">
+            <div class="location">
+                <div class="info"><span class="mui-icon mui-icon-location"></span> <span>当前位置 : {{location}} </span>
+                </div>
+                <div class="time"></div>
+                <div class="photo_box">
+                    <a>
+                        <div class="circle_box" id="take_photo">
+                            <span class="mui-icon mui-icon-camera"></span>
+                            <span @click="takePhoto">点击拍照</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="my_tips">
+                    <div class="box">
+                        <div class="img">
+                            <img src="img/svg/tip.svg" />
+                        </div>
+                        <p>
+                            <a href="illustrate.html" class="link">查看随手拍注意事项</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--拍照-->
+    </div>
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/snapshot/index.js"></script>
+</body>
+</html>

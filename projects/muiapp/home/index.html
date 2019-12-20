@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/home.css" rel="stylesheet" />
+    <style>
+        .head_log {position: relative;}
+        .head_log .banner {background:url(img/home/mask.png) round,url(img/home/back.jpg) round; width: 100%;}
+        .head_log .banner img {width: 100%;visibility: hidden;}
+        .head_log .slogan {background: #FFFFFF;}
+        .head_log .slogan img {width: 90px;height: auto;position: absolute;margin-top: -30px;margin-left: 15px;border: 2px solid #A5E0FC;border-radius: 8px;}
+        .head_log .slogan .title {padding: 18px 15px 20px 120px;line-height: 1.3em;color: #2275C0;font-size: 20px;margin: 0;}
+        .introduce {padding: 15px 20px 0 20px;}
+        .introduce .line {height: 18px;width: 4px;left: 18px;top:20px;}
+        .introduce p {font-size: 12px;color: #525252;}
+        .introduce .mui-slider{background: #FFFFFF;}
+        .introduce .news_box h3{font-size: 16px;margin-bottom: 15px;}
+        .introduce .check_more {background: #FFFFFF;padding: 15px;text-align: center;font-size: 14px;border-top: 1px solid #E6EAEB;}
+        .introduce .check_more a {color: #49A2EA;}
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-home-index">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">集团门户</h1>
+    </header>
+    <div class="mui-content">
+        <div class="head_log">
+            <div class="banner">
+                <img src="img/home/mask.png" />
+            </div>
+            <div class="slogan">
+                <img src="img/home/logo.png" />
+                <h3 class="title">中国江苏国际经济技术合作集团有限公司</h3>
+            </div>
+        </div>
+
+        <div class="introduce">
+            <div class="news_box">
+                <span class="line"></span>
+                <h3 class="title">集团简介</h3>
+                <p class="text">中国江苏国际经济技术合作公司（简称“中江国际”）是直属江苏省政府的国有独资企业，于1980年12月经国务院批准成立，集国际国内工程承包、工程咨询服务、房地产开发、进出口贸易、对外劳务合作为一体的综合性跨国公司。</p>
+            </div>
+        </div>
+
+        <div class="introduce">
+            <div class="news_list">
+                <div class="mui-slider">
+                    <div class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+                        <a class="mui-control-item mui-active" href="#item1">集团要闻</a>
+                        <a class="mui-control-item" href="#item2">企业动态</a>
+                        <a class="mui-control-item" href="#item3">其他资讯</a>
+                    </div>
+                    <div class="mui-slider-group">
+                        <div id="item1" class="mui-slider-item mui-control-content mui-active">
+                            <ul class="mui-table-view">
+                                <li v-for="item in display.tab1" class="mui-table-view-cell"><a :href="item.url">{{item.text}}</a></li>
+                            </ul>
+                        </div>
+                        <div id="item2" class="mui-slider-item mui-control-content">
+                            <ul class="mui-table-view">
+                                <li v-for="item in display.tab2" class="mui-table-view-cell"><a :href="item.url">{{item.text}}</a></li>
+                            </ul>
+                        </div>
+                        <div id="item3" class="mui-slider-item mui-control-content">
+                            <ul class="mui-table-view">
+                                <li v-for="item in display.tab3" class="mui-table-view-cell"><a :href="item.url">{{item.text}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="check_more">
+                    <a href="news_list.html">查看更多集团要闻</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="introduce">
+            <div class="news_box">
+                <span class="line"></span>
+                <h3 class="title">集团组织架构</h3>
+                <div>
+                    <img src="img/home/tree.jpg" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/home/index.js"></script>
+</body>
+</html>

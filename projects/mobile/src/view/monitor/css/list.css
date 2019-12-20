@@ -1,0 +1,22 @@
+/******监控列表*****/
+.cameraList{width: 100%;}
+.cameraList .head{width: 100%;padding:8px 15px;background-color:#E0E0E0;margin-top:46px;white-space : pre; height: 40px;overflow: auto;}
+.cameraList .head a{font-size:12px;color:#7F7F7F;}
+.cameraList .head .active{color:#424242;}
+.cameraList .fixed_box{background: #FFFFFF;top:166px;}
+.cameraList .center{display: table;background-color: #FFFFFF;width:100%;padding-left:18px;}
+.cameraList .center .left{display:table-cell;width: 50px;vertical-align: middle;}
+.cameraList .center .left .img{width: 25px;}
+.cameraList .center .middle .text {line-height: 3em;font-size: 16px;margin: 0;color:#000000;}
+.cameraList .center .middle{display:table-cell;width: 200px;vertical-align: middle;padding-top:6px;padding-left:5px;border-bottom:1px solid #E0E0E0;}
+.cameraList .center .middle .area{margin-bottom:0;padding-top:8px;color:#000000;font-size:14px;}
+.cameraList .center .middle .number{margin-top:0;font-size:12px;}
+.cameraList .center .middle .state_normal{color:#34D661;font-size:14px;}
+.cameraList .center .middle .state_abnormal{color:#E54848;font-size:14px;}
+.cameraList .center .middle.list-folder{padding: 0 8px;}
+.cameraList .center .right{display:table-cell;vertical-align: middle;width:100px;border-bottom:1px solid #E0E0E0;text-align:right;}
+.cameraList .center .right i{font-size:12px;}
+.cameraList .center .right a{font-size:12px;color:#3899E8;border:1px solid #3899E8;border-radius:4px;display: inline-block;padding: 0 8px;}
+.cameraList .center .right .selected {background-color: #3899E8;color: #FFFFFF;}
+.cameraList .center .space{display: table-cell;vertical-align: middle;width:20px}
+.cameraList .center .remove_bottom_border{border-bottom-width:0;}

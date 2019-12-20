@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/workflow.css" rel="stylesheet" />
+    <style>
+        .plat_box.working_box img {  width: 40px;  height: 40px;  margin-bottom: 10px;  }
+        .plat_box.working_box {  padding: 15px 0;  }
+        .mui-table-view:after {  height: 0;  }
+        .mui-grid-view.mui-grid-9 .mui-table-view-cell {  border-bottom: none;  }
+        .plat_box.start {  margin-top: 12px;  padding: 10px 0;  }
+        .plat_box.start .mui-grid-view.mui-grid-9 .mui-table-view-cell {  border: none;  }
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-workflow-working">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">待办事项</h1>
+        <a class="icon"><img src="img/workflow/search.png" /></a>
+    </header>
+    <div class="mui-content">
+        <div id="plat_box" class="plat_box working_box">
+            <ul class="mui-table-view mui-grid-view mui-grid-9">
+                <li v-for="item in nav" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                    <a :href="item.url">
+                        <span class="mui-icon">
+                            <img :src="item.icon"><span class="mui-badge">{{item.count}}</span>
+                        </span>
+                        <div class="mui-media-body">{{item.text}}</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="plat_box start">
+            <h5>发起新待办</h5>
+            <div>
+                <ul class="mui-table-view mui-grid-view mui-grid-9">
+                    <li v-for="item in launch" @click="startNewMatter(item.url)" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                        <a>
+                            <span class="mui-icon"><img :src="item.icon"></span>
+                            <div class="mui-media-body">{{item.alias}}</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/workflow/working.js"></script>
+</body>
+</html>

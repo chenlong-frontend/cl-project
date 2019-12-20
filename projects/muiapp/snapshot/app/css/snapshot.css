@@ -1,0 +1,69 @@
+/*********底部选项卡*********/
+.mui-bar-tab {height: 60px;background: #FFFFFF;box-shadow:none;padding: 0;}
+.mui-bar-tab .my_active .label{color: #424242;}
+.mui-bar-tab .mui-tab-item {height: 50px;padding-top: 10px;}
+.mui-bar-tab img {height: 20px;}
+.mui-bar-tab .label {font-size: 12px;margin: 0;color: #CACACA;}
+
+/*************工单记录处理切换按钮**************/
+.issue_tab {width: 100%;position: relative;}
+.issue_tab .line {display: inline-block;position: absolute;left: 50%;width: 1px;height: 50px;background: #E5E5E5;top: 10px;}
+.issue_tab a {text-align: center;width: 50%;display: inline-block;padding: 18px 0;}
+.issue_tab a span{color: #7F7F7F;vertical-align: 11px;padding-left: 6px;font-size: 16px;}
+.issue_tab img{width: 30px;}
+.issue_tab a .active {color: #000000;}
+
+/**********登录人信息***********/
+.top {padding: 10px 20px 8px 10px;display: table;width: 100%;}
+.top > div {display: table-cell;}
+.top_left {vertical-align: middle;padding-left: 10px;}
+.top_left .info {padding-left: 20px;float: left;}
+.top_left .head_pic {display: inline-block;width: 50px;height: 50px;float: left;clear: left;}
+.top_left .head_pic img{border-radius: 25px;width: 50px;}
+.top_left .name {color: #000000;margin: 0;font-size: 16px;line-height: 1.8em;}
+.top_left .job {font-size: 12px;color: #8C8C8C;margin:0;}
+.top_right {vertical-align: middle;text-align: right;}
+.top_right > h3 {text-align: right;color: #449FE9;}
+
+/********表单样式**********/
+.my_form {padding: 20px 40px 30px 20px;}
+.my-input-row{display: table;width: 100%;margin: 5px 0;}
+.my-input-row .left {display: table-cell;width: 80px;text-align: right;color: #424242;font-size: 16px;padding: 10px 0;}
+.my-input-row .right {display: table-cell;padding: 0 10px;position: relative;}
+.my-input-row .right input,.my-input-row .right select,.my-input-row .right .time_select {color: #7F7F7F;margin: 0;height: 35px;border: none;border-radius: 6px;width: 100%;font-size: 14px;max-width: 250px;background-color: #EBF5FD;}
+.my-input-row .right select {padding: 8px 15px;position: absolute;width: 90%;opacity: 0;}
+.my-input-row .left.text {vertical-align: top;}
+.my-input-row .right textarea {color: #7F7F7F;border: none;max-width: 250px;background: #EBF5FD;border-radius: 6px;padding: 10px;height: 100px;font-size: 14px;}
+.my_form .submit {width: 80%;border: none;font-size: 18px;font-weight: bold;max-width: 280px;background: #3899E8;border-radius: 6px;}
+.unchange {color: #7F7F7F;background-color: #E2E2E2!important;}
+
+.my_tips .box > p > a {color: #424242;}
+/********底部流程进展样式*********/
+.my_bottom_progress {position: fixed;bottom: 0;width: 100%;z-index: 999;background: #FFFFFF;}
+.my_bottom_progress .progress {width: 100%;background: #EFEFEF;height: 48px;display: table;}
+.my_bottom_progress .progress .left {display: table-cell;width: auto;vertical-align: middle;padding-left: 5px;}
+.my_bottom_progress .progress .right {display: table-cell;width: 120px;vertical-align: middle;background-color: #E4E4E4;padding-left: 10px;}
+.my_bottom_progress .time p {margin: 0;font-size: 12px;line-height: 16px;}
+.my_bottom_progress .left > * {float: left;}
+.my_bottom_progress .left > a {color: #A3A3A3;font-size: 12px;background: #DBDBDB;padding: 1px 0;border-radius: 10px;width: 20%;display: inline-block;text-align: center;}
+.my_bottom_progress .left > span {display: inline-block;width: 6%;height: 5px;background: #DBDBDB;margin-top: 8px;}
+.my_bottom_progress .left > .active {background-color: #3899E8;color: #FFFFFF;}
+.my_bottom_progress .left > .active.danger {background: #E54848;}
+.my_bottom_progress .left > .active.fail {background: #848484;}
+.my_bottom_progress .left > .active.warn {background: #D3D326;}
+.my_bottom_progress .left > .active.success {background: #34D661;}
+.my_bottom_bth+.my_bottom_progress {bottom: 80px;}
+
+/**********选项卡样式*************/
+.my_items .mui-slider-item {border: none!important;}
+/*********图片样式，分为可编辑和查看图片样式***********/
+.edit.photo_box {padding: 40px 50px 10px 50px;background-color: #DCE6EE;}
+.edit.photo_box .img_box {width: 100%;position: relative;}
+.edit.photo_box .img_box > img {width: 100%;height: auto;border-radius: 10px;}
+.edit.photo_box .bottom {text-align: center;padding: 10px 0;}
+.edit.photo_box .bottom > a {color: #000000;font-size: 14px;}
+.edit.photo_box .bottom > a > span {color: #3899E8;font-size: 22px;padding-right: 10px;vertical-align: bottom;}
+.read.photo_box {padding: 15px 30px;background-color: #DCE6EE;}
+.read.photo_box > p {color: #000000;}
+.read.photo_box .img_box {width: 100%;position: relative;padding: 0 20px;}
+.read.photo_box .img_box > img {width: 100%;height: auto;border-radius: 10px;}

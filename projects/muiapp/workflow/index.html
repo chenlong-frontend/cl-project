@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/workflow.css" rel="stylesheet" />
+    <style>
+        #slider p {color: #FFFFFF!important;}
+        .mui-bar-nav {background: #3899E8;height: 60px;padding: 10px;}
+        .mui-bar-nav .logo {width: 30px;margin-top: 6px;}
+        .mui-bar-nav .mui-title {padding-left: 15px;}
+        .mui-bar-nav .mui-title p {color: #FFFFFF;margin: 0;line-height: 14px;}
+        .mui-bar-nav .mui-title .company{margin-top: 6px;}
+        .mui-bar-nav .mui-title .department {font-size: 12px;line-height: 18px;}
+        .mui-bar-nav~.mui-content {padding-bottom: 60px;background: #FFFFFF;}
+        .mui-grid-view.mui-grid-9 .mui-table-view-cell {border: none;}
+        .mui-slider .mui-slider-group .mui-slider-item img{height: 220px;}
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-workflow-index">
+    <header class="mui-bar mui-bar-nav">
+        <a><img class="logo" src="img/workflow/logo.png" /></a>
+        <h1 class="mui-title">
+            <p class="company">中江国际集团有限公司</p>
+            <p class="department">徐州沛县文荟苑</p>
+        </h1>
+        <a @click="msg" class="icon"><img src="img/workflow/msg_grey.png" /></a>
+    </header>
+
+    <div class="mui-content">
+        <!--轮播图片-->
+        <div id="slider" class="mui-slider">
+            <div class="mui-slider-group mui-slider-loop">
+                <div v-for="(item,index) in banner" class="mui-slider-item" :class="{ 'mui-slider-item-duplicate':index===0||index===banner.length-1}">
+                    <a>
+                        <img :src="item.pic">
+                        <p class="mui-slider-title">{{item.text}}</p>
+                    </a>
+                </div>
+            </div>
+            <div class="mui-slider-indicator mui-text-right">
+                <div v-for="n in banner.length-2" class="mui-indicator" :class="{'mui-active':n===1}"></div>
+            </div>
+        </div>
+
+        <!--应用菜单-->
+        <div class="work_plat">
+            <div class="plat_box">
+                <h5>轻应用</h5>
+                <ul class="mui-table-view mui-grid-view mui-grid-9">
+                    <li v-for="item in nav.light" @click="turnOut(item.url)" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                        <a>
+                            <span class="mui-icon"><img :src="item.form_icon" /></span>
+                            <div class="mui-media-body">{{item.form_name}}</div>
+                        </a>
+                    </li>
+                </ul>
+                <h5>办公协助</h5>
+                <ul class="mui-table-view mui-grid-view mui-grid-9">
+                    <li v-for="(item,index) in nav.office" @click="turnOut(item.url)" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                        <a>
+                          <span class="mui-icon">
+                             <img :src="item.form_icon" />
+                             <span v-show="index===0" class="mui-badge">{{count}}</span>
+                          </span>
+                          <div class="mui-media-body">{{item.form_name}}</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/workflow/index.js"></script>
+</body>
+</html>

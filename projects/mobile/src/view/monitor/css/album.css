@@ -1,0 +1,48 @@
+.body{
+    font-family: 'Helvetica Neue',Helvetica,sans-serif;
+    font-size: 17px;
+    line-height: 21px;
+    color: #000;
+    width: 100%;
+    overflow: hidden;
+}
+.iconLeft{
+    color: #fff;
+    width:13%;
+    height: 60px;
+    float:left;
+}
+.HeaderTitle{
+    color: white;
+    width:70%;
+    font-size: 21px;
+    height: 60px;
+    line-height:60px;
+    float:left;
+}
+.content{
+    width: 100%;
+}
+
+.albumContent{}
+.ctrl_bar {font-size: 12px;width: 100%;}
+.ctrl_bar span {display: inline-block;padding: 8px 20px;}
+.ctrl_bar .next {float: right;}
+.photo_box{width: 100%;padding: 15px;background: white;box-sizing: border-box;}
+.photo_box img{width: 100%;}
+
+.inform {background: #FFFFFF;padding: 25px 20px;margin-top: 20px;position: relative;}
+.inform .left {display: inline-block;}
+.inform .left div:first-child {font-weight: normal;margin-bottom: 4px;font-size: 16px;}
+.inform .left div:nth-child(2) {margin: 0;font-size: 12px;color: #8f8f94;}
+.inform .left div:nth-child(3) {margin: 0;font-size: 12px;color: #8f8f94;}
+.inform .right {float: right;text-align: center;}
+.inform .right div{font-size: 14px;  margin-top: 0; margin-bottom: 10px;color: #8f8f94;}
+.inform .right img{width: 50px;}
+.inform .line {display: inline-block;padding: 30px 1px;background-color: #EFEFEF;position: absolute;right: 130px;top: 30px;}
+
+/******相册列表*****/
+.fixed_box{width:100%;}
+.album {margin: 46px 0;padding: 5px 15px 30px 15px;background-color: #FFFFFF;}
+.album img {width: 32.3%;height: auto;margin-right: 1%}
+.album .picTime {padding: 5px 0;color: #424242;padding: 5px 0;font-size: 14px;font-weight: 400;line-height: 1;margin-top: 5px;margin-bottom: 5px;}

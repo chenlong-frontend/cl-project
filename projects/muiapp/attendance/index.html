@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/attendance.css" rel="stylesheet" />
+    <style>
+
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-attendance-index">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">考勤信息</h1>
+    </header>
+    <div class="mui-content">
+        <div class="title"><h3 class="h3">{{timeTitle}}</h3><img class="img time_select" src="img/attendance/calendar.png"></div>
+        <div class="timeline">
+            <ul class="time_title">
+                <li v-for="(item,index) in display.days"><a :class="{active:index === active.days}">{{item}}</a></li>
+            </ul>
+            <!--<div class="time_work">-->
+                <!--<div class="no_msg" id="no_msg" v-if="start.length === 0">-->
+                    <!--暂无考勤信息-->
+                <!--</div>-->
+                <!--<div class="left" v-if="start.length > 0">-->
+                    <!--<span v-show="start.length > 0" class="text">上班</span>-->
+                    <!--<span v-show="process.length > 0" class="line long"></span>-->
+                    <!--<template v-show="process.length > 0" v-for="n in process.length">-->
+                        <!--<span class="circle"></span>-->
+                        <!--<span class="line" :class="{long:n === process.length && end.length > 0}"></span>-->
+                    <!--</template>-->
+                    <!--<span v-show="end.length > 0" class="text">下班</span>-->
+                <!--</div>-->
+                <!--<div class="right" v-if="start.length > 0">-->
+                    <!--<div class="start">-->
+                        <!--<div class="time">{{start[0].check_time}}</div>-->
+                        <!--<div class="info">{{start[0].gro_name}}( {{start[0].check_type}}/上班 )</div>-->
+                    <!--</div>-->
+                    <!--<div class="process" v-for="item in process">-->
+                        <!--<div class="time">{{item.check_time}}</div>-->
+                        <!--<div class="info">{{item.gro_name}}( {{item.check_type}}/作业 )</div>-->
+                    <!--</div>-->
+                    <!--<div class="end">-->
+                        <!--<div class="time">{{end[0].check_time}}</div>-->
+                        <!--<div class="info">{{end[0].gro_name}}( {{end[0].check_type}}/下班 )</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+    <div class="my_modal">
+        <div class="box">
+            <div class="title">选择日期</div>
+            <div id="schedule_box"></div>
+        </div>
+
+    </div>
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/attendance/schedule.js"></script>
+<script src="app/js/attendance/time.js"></script>
+<script src="app/js/tool.js"></script>
+<script src="app/js/attendance/index.js"></script>
+</body>
+</html>

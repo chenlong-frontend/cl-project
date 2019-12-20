@@ -1,0 +1,18 @@
+.body{
+    font-family: 'Helvetica Neue',Helvetica,sans-serif;
+    font-size: 17px;
+    line-height: 21px;
+    color: #000;
+}
+.content{position: fixed;top:45px;left:0;right: 0}
+.folder{position: fixed;top: 45px;width: 100%;z-index: 999;}
+.top{padding: 10px 15px 8px 15px;width: 100%;background-color: #FFFFFF;height: 70px;box-sizing: border-box;}
+.top .img {width: 60px;position: absolute;}
+.top .img img{width: 50px;height: 50px;}
+.top .text {width: 100%;padding: 0 60px;margin-top: 5px;overflow: hidden;}
+.top .text > .department{color: #000000;margin: 0;font-size: 14px;}
+.top .text > .address{font-size: 12px;margin-bottom: 2px; color:#8f8f94;}
+.top .right {width: 90px;position: absolute;top: 18px;right: 10px;}
+.top .right > div {color: #449FE9;text-align: right;font-size: 24px;line-height: 1;margin-top: 5px;  margin-bottom: 5px;font-weight: bold;}
+
+.tabIntroduce{position: fixed;top:70px; left: 0; right: 0; bottom: 0;}

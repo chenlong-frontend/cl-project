@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/common/mui.picker.min.css" rel="stylesheet"/>
+    <link href="app/css/userinfo.css" rel="stylesheet" />
+    <style>
+        .list-box {padding: 0 15px 25px 15px;}
+        .list-box li .left{color: #424242;font-size: 16px;font-weight: 500;}
+        .list-box li:after {left: 0;}
+        .list-box li .right {text-align: right;color: #999999;}
+        .list-box li.img {padding-bottom: 10px;}
+        .list-box li.img .right {padding-right: 10px;}
+        .list-box li.img .right img {height: 50px;}
+        .list-box li.readOnly .left,.list-box li.readOnly .right {color: #CCCCCC;}
+        .list-box li .arrow {width: 20px;color: #999999;}
+        .list-box li select {position: absolute;z-index: 9;opacity: 0;margin: 0;}
+        .mui-bar-nav > .icon {color: #FFFFFF;}
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/mui.picker.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-userinfo-edit">
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">信息编辑</h1>
+        <a class="icon">提交</a>
+    </header>
+    <div class="mui-content">
+        <ul class="list-box">
+            <li class="img" @click="selectPic">
+                <div class="left"><label>头像</label></div>
+                <div class="right"><img src="img/userinfo/person_icon.png" /></div>
+                <div class="arrow"><i class="mui-icon mui-icon-arrowright"></i></div>
+            </li>
+            <li class="readOnly">
+                <div class="left"><label>姓名</label></div>
+                <div class="right">2011410</div>
+                <div class="arrow"><i class="mui-icon mui-icon-arrowright"></i></div>
+            </li>
+            <li>
+                <select>
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
+                <div class="left"><label>性别</label></div>
+                <div class="right">dfgdfg</div>
+                <div class="arrow"></div>
+            </li>
+            <li @click="selectTime">
+                <div class="left"><label>出生年月</label></div>
+                <div class="right">dfgdfg</div>
+                <div class="arrow"></div>
+            </li>
+            <li class="readOnly">
+                <div class="left"><label>项目工号</label></div>
+                <div class="right">2011410</div>
+                <div class="arrow"><i class="mui-icon mui-icon-arrowright"></i></div>
+            </li>
+            <li class="readOnly">
+                <div class="left"><label>项目部门</label></div>
+                <div class="right">2011410</div>
+                <div class="arrow"><i class="mui-icon mui-icon-arrowright"></i></div>
+            </li>
+            <li class="readOnly">
+                <div class="left"><label>项目职务</label></div>
+                <div class="right">2011410</div>
+                <div class="arrow"><i class="mui-icon mui-icon-arrowright"></i></div>
+            </li>
+            <li class="readOnly">
+                <div class="left"><label>工种</label></div>
+                <div class="right">2011410</div>
+                <div class="arrow"><i class="mui-icon mui-icon-arrowright"></i></div>
+            </li>
+            <li class="readOnly">
+                <div class="left"><label>手机</label></div>
+                <div class="right">2011410</div>
+                <div class="arrow"><i class="mui-icon mui-icon-arrowright"></i></div>
+            </li>
+            <li @click="tel">
+                <div class="left"><label>固定电话</label></div>
+                <div class="right">dfgdfg</div>
+                <div class="arrow"></div>
+            </li>
+            <li @click="email">
+                <div class="left"><label>邮箱</label></div>
+                <div class="right">dfgdfg</div>
+                <div class="arrow"></div>
+            </li>
+            <li @click="mark">
+                <div class="left"><label>备注</label></div>
+                <div class="right">dfgdfg</div>
+                <div class="arrow"></div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/userinfo/edit.js"></script>
+</body>
+</html>

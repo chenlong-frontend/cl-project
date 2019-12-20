@@ -1,0 +1,9 @@
+.header {position: fixed;left: 0;top: 0;right: 0;z-index: 99;background: #3899E8;height: 50px;padding: 10px;box-sizing: border-box;}
+.logo {width: 30px;}
+.title {position: absolute;top: 8px;left: 50px;}
+.title p {margin: 0;color: #FFFFFF;}
+.icon {float: right;margin-top: 4px;margin-right: 7px;}
+.icon img {width: 20px;height: 20px;}
+.subTitle {padding: 12px 20px;color: #242424;font-size: 14px;}
+.meun-line {border-bottom: 1px solid #EEEEEE;}
+:global(.workflow-index-icon .am-grid-icon) {width: 42px;height: 42px;}

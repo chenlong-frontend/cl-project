@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="app/css/common/mui.min.css" rel="stylesheet"/>
+    <link href="app/css/common/common.css" rel="stylesheet" />
+    <link href="app/css/filemanage.css" rel="stylesheet" />
+    <style>
+        #wait-load{bottom: 0;}
+        .my_tips {margin-top: 0;}
+        .my_tips .box {background: #E5E5E5;}
+        .file-my-up {}
+        .file_list {margin-top: 0;}
+        .mui-bar-nav~.mui-content {padding-bottom: 40px;}
+        .tip_box {padding: 15px 0;background: #EFEFF4;}
+        .tool-bar li{padding: 8px 0;}
+    </style>
+    <script src="app/js/common/jquery-3.2.1.min.js"></script>
+    <script src="app/js/common/mui.min.js"></script>
+    <script src="app/js/common/vue.js"></script>
+</head>
+<body>
+<div id="app-fileManage-my-share"  @click="nodeControl">
+    <!--common.css，filemanage.css有改动-->
+    <file-manage-search :is-show.sync="isSearchShow" @filesearch="searchListen"></file-manage-search>
+
+    <file-manage-search-result :is-show.sync="isSearchResult" extra="myUp" :request="searchRequest"></file-manage-search-result>
+
+    <header class="mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">收到的分享</h1>
+        <a class="icon">
+            <img @click.stop="active.sort=!active.sort" src="img/filemanage/sort.png" />
+            <ul v-show="active.sort" class="select-box"><li @click="sortByName">按名称排序</li><li @click="sortByTime">按时间排序</li><li @click="sortBySize">按文件大小排序</li></ul>
+        </a>
+        <a class="icon" @click="isSearchShow=true"><img src="img/filemanage/search.png" /></a>
+    </header>
+    <div class="mui-content" style="position: fixed;top: 60px;bottom: 40px;left: 0;overflow: auto;right: 0;padding: 0;"  @scroll="loadMore($event)">
+        <div class="tip_box">
+            <div class="my_tips">
+                <div class="box">
+                    <div class="img">
+                        <img src="img/filemanage/warning.png" />
+                    </div>
+                    <p>分享记录删除后不可恢复</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="file_list file-my-up">
+            <p v-if="display.file.length === 0">暂无数据</p>
+            <ul v-else>
+                <li v-for="item in display.file" class="item">
+                    <div class="img">
+                        <img :src="item.type_icon" />
+                    </div>
+                    <div class="text">
+                        <p class="name">{{item.file_name}}</p>
+                        <p class="info">{{item.file_size}}</p>
+                    </div>
+                    <div class="right" @click="item.isToolBar = true">
+                        <img src="img/filemanage/more.png" />
+                    </div>
+                    <ul class="tool-bar" v-show="item.isToolBar">
+                        <li @click.stop="deleteShare(item)">删除记录</li>
+                    </ul>
+                </li>
+            </ul>
+            <p v-show="isScrollBottom" style="text-align: center;padding-top: 15px;">加载中···</p>
+        </div>
+    </div>
+
+    <!--底部计数-->
+    <div class="count">
+        <p>收到的文件分享{{display.file.length}}个</p>
+    </div>
+</div>
+<div id="wait-load" v-show="display"><img src="img/common/loading.gif" /></div>
+<script src="app/js/tool.js"></script>
+<script src="app/js/fileManage/component/search.js"></script>
+<script src="app/js/fileManage/component/searchResult.js"></script>
+<script src="app/js/fileManage/myShare.js"></script>
+</body>
+</html>
