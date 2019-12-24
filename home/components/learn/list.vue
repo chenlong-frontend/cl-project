@@ -5,7 +5,7 @@
       <div class="item" v-for="(child,index) in item.children" :key="index">
         <div class="imgs">
           <div class="img-box" v-for="img in child.imgs" :key="img">
-            <img :src="`img/learn/${img}`" />
+            <img :src="`/img/learn/${img}`" />
           </div>
         </div>
         <div class="text">
