@@ -4,7 +4,7 @@
     <nav-com :active="1"></nav-com>
     <div class="container">
       <div class="content">
-        <!-- <markdown-com :data="markdown"></markdown-com> -->
+        <list-com></list-com>
       </div>
     </div>
     <!--********尾部********-->
@@ -15,18 +15,10 @@
 import axios from "axios";
 import navCom from "~/components/layout/nav.vue";
 import footerCom from "~/components/layout/footer.vue";
-// import markdownCom from "~/components/markdown/index.vue";
+import listCom from "~/components/learn/list.vue";
+
 export default {
-  asyncData() {
-    // return axios({
-    //   method: 'POST',
-    //   url: 'http://a331.info:3333/file/api',
-    //   data: {type: 1}
-    // }).then((response) => {
-    //   return {markdown: response.data.data}
-    // })
-  },
-  components: { navCom, footerCom },
+  components: { navCom, footerCom, listCom },
   data() {
     return {};
   }
@@ -41,8 +33,6 @@ export default {
 .content {
   width: 768px;
   margin: 0 auto;
-  padding: 25px;
-  border-radius: 3px;
-  background-color: #ffffff;
+  padding: 0 25px;
 }
 </style>

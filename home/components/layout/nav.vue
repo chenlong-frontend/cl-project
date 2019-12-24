@@ -22,8 +22,8 @@ export default {
     return {
       nav: [
         { text: "首页", url: "/" },
-        { text: "学习历程", url: "/translate" },
-        { text: "项目收集", url: "/translate/datefns" }
+        { text: "学习历程", url: "/learn" },
+        { text: "项目收集", url: "/learn" }
       ]
     };
   }
