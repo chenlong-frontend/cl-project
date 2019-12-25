@@ -9,7 +9,11 @@
           </div>
         </div>
         <div class="text">
-          <p>{{child.text}}</p>
+          <p v-if="child.text">{{child.text}}</p>
+          <pre v-if="child.code">{{child.code}}</pre>
+          <div v-for="(a,aIndex) in child.link" :key="aIndex">
+            <a target="_blank" :href="a.link">{{a.label}}</a>
+          </div>
         </div>
       </div>
     </div>
