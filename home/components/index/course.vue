@@ -55,27 +55,24 @@
     <TimelineItem color="green">
       <time>2017年5月</time>
       <div class="content">
-        个人网站:
-        <a href="http://119.3.107.239:3031/" target="view_window">http://119.3.107.239:3031/</a>
-        <p>综合平时的作品做成一个网站，主要包括仿微信聊天、仿Diaro记事本，独自完成</p>
-        <div>
-          技术栈：
-          <Tag color="green">jquery</Tag>
-          <Tag color="green">thinkphp</Tag>
-          <Tag color="green">mysql</Tag>
-        </div>
+        <p>
+          2016年1月-2017年5月，一直处于学习阶段。
+          <a
+            href="http://119.3.107.239:3030/learn"
+            target="view_window"
+          >学习记录历程。</a>
+        </p>
+        <p>
+          期间完成的部分项目：
+          <a href="http://119.3.107.239:3031/chat/" target="view_window">仿微信页面</a>、
+          <a href="http://119.3.107.239:3031/note/" target="view_window">记事本</a>
+        </p>
       </div>
     </TimelineItem>
     <TimelineItem color="blue">
       <Icon type="logo-javascript" slot="dot" />
       <time>2016年1月</time>
-      <div>
-        2016年1月-2017年5月，一直处于学习期间。
-        <a
-          href="http://119.3.107.239:3030/learn"
-          target="view_window"
-        >学习记录历程。</a>
-      </div>
+      <div>起点</div>
     </TimelineItem>
   </Timeline>
 </template>
