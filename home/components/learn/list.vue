@@ -54,7 +54,8 @@ export default {
 <style scoped>
 .time {
   padding: 10px;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: bold;
   color: #6d6d6d;
 }
 .item {
