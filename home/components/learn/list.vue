@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="item in data" :key="item.time">
+    <div class="list" v-for="item in data" :key="item.time">
       <div class="time">{{item.time}}</div>
       <div class="item" v-for="(child,index) in item.children" :key="index">
         <div class="imgs">
@@ -20,12 +20,10 @@
   </div>
 </template>
 <script>
-import data from "./data";
 export default {
+  props: ["data"],
   data() {
-    return {
-      data
-    };
+    return {};
   }
 };
 </script>

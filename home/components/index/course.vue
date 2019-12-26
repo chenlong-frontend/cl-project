@@ -69,7 +69,13 @@
     <TimelineItem color="blue">
       <Icon type="logo-javascript" slot="dot" />
       <time>2016年1月</time>
-      <p>第一次接触JavaScript，学习的起点。</p>
+      <div>
+        2016年1月-2017年5月，一直处于学习期间。
+        <a
+          href="http://119.3.107.239:3030/learn"
+          target="view_window"
+        >学习记录历程。</a>
+      </div>
     </TimelineItem>
   </Timeline>
 </template>
