@@ -87,7 +87,7 @@ const data = [
     ]
   },
   {
-    time: "2017-02-13.jpg",
+    time: "2017-02-13",
     children: [
       {
         imgs: ["2017021303.jpg", "2017021304.jpg"],
