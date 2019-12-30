@@ -26,7 +26,7 @@
       </div>
     </TimelineItem>
     <TimelineItem color="green">
-      <time>2019年12月(工作期间)</time>
+      <time>2019年12月</time>
       <div>
         算法：
         <a href="https://github.com/1016482011/algorithm-learn" target="view_window">算法学习</a>
