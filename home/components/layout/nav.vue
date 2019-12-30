@@ -20,11 +20,7 @@ export default {
   },
   data() {
     return {
-      nav: [
-        { text: "首页", url: "/" },
-        { text: "学习历程", url: "/learn" },
-        { text: "项目收集", url: "/learn" }
-      ]
+      nav: [{ text: "首页", url: "/" }, { text: "学习历程", url: "/learn" }]
     };
   }
 };
