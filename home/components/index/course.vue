@@ -29,7 +29,7 @@
       <time>2019年12月(工作期间)</time>
       <div>
         算法：
-        <a href="https://github.com/1016482011/algorithm-learn" target="view_window">算法学习笔记</a>
+        <a href="https://github.com/1016482011/algorithm-learn" target="view_window">算法学习</a>
       </div>
       <div class="content">
         <p>这段时间的工作主要是 vue 相关的单一项目。主要是老项目的维护和部分重构。</p>
