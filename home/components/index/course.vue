@@ -27,11 +27,11 @@
     </TimelineItem>
     <TimelineItem color="green">
       <time>2019年12月</time>
-      <div>
-        算法：
-        <a href="https://github.com/1016482011/algorithm-learn" target="view_window">算法学习</a>
-      </div>
       <div class="content">
+        <div>
+          算法：
+          <a href="https://github.com/1016482011/algorithm-learn" target="view_window">算法学习</a>
+        </div>
         <p>这段时间的工作主要是 vue 相关的单一项目。主要是老项目的维护和部分重构。</p>
         <p>由于平时比较空闲，前半段时间学习了一些常用技术的基础，主要有：liunx、nginx、TCP/IP、docker、浏览器插件、graphql、prisma。</p>
         <p>后半段主要是算法方面的学习，首先是通过极客学习了基础，并在LeetCode上练题巩固。</p>
