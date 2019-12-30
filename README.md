@@ -1,3 +1,3 @@
-# cl-work
+# cl-project
 
-从接触 JavaScript 到现在的一些汇总
+自学习 JavaScript 以来的一些事件的记录。
