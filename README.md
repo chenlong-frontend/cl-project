@@ -4,14 +4,14 @@
 
 ## 至今
 
-博客：[github 主页](https://blog.a331.info/)
-gitbook：[《js 权威指南》](https://app.gitbook.com/@2956957982/s/js/)、[《ES6 标准入门》](https://app.gitbook.com/@2956957982/s/es6/)
+博客：[github 主页](https://www.frontjs.top/)
+gitbook：[《js 权威指南》](https://2956957982.gitbook.io/js/)
 
 打算长期进行的 gitbook 和博客，gitbook 主要是书籍的摘录，博客记录工作或者学习的感悟。
 
 ## 2019 年 12 月
 
-算法：[算法学习](https://github.com/1016482011/algorithm-learn)
+算法：[算法学习](https://github.com/chenlong-frontend/algorithm-learn)
 
 这段时间的工作主要是 vue 相关的单一项目。主要是老项目的维护和部分重构。
 
@@ -21,8 +21,8 @@ gitbook：[《js 权威指南》](https://app.gitbook.com/@2956957982/s/js/)、[
 
 ## 2019 年 4 月
 
-react-native-app：[github 地址](https://github.com/1016482011/react-native-app)
-expo-app：[github 地址](https://github.com/1016482011/expo-app)
+react-native-app：[github 地址](https://github.com/chenlong-frontend/react-native-app)
+expo-app：[github 地址](https://github.com/chenlong-frontend/expo-app)
 模型工具：[点击这里](http://119.3.107.239:3034/)
 
 自 2018 年 6 月毕业，正式工作的第一年，工作这段时间花了大量时间学习 threejs 以及 react。
